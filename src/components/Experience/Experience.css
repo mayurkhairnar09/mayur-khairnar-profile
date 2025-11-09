@@ -53,6 +53,12 @@
   transition: all 0.3s ease;
 }
 
+.dark-mode .experience-content {
+  background: rgba(30, 41, 59, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+}
+
 .experience-content:hover {
   transform: translateX(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
