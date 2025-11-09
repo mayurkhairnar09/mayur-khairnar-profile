@@ -4,50 +4,40 @@ import './Education.css'
 const Education = () => {
   const education = [
     {
-      degree: 'Bachelor of Technology in Computer Science',
-      institution: 'University Name',
-      location: 'City, Country',
+      degree: 'Bachelor of Engineering - Electrical',
+      institution: "SSBT's College of Engineering & Technology, Bambhori, Jalgaon",
+      location: 'Jalgaon, Maharashtra',
       period: '2016 - 2020',
-      gpa: '3.8/4.0',
+      gpa: '',
       achievements: [
-        'Graduated with First Class Honors',
-        'Won Best Project Award for final year project',
-        'Active member of Coding Club and Tech Society',
-      ]
-    },
-    {
-      degree: 'Higher Secondary Education',
-      institution: 'School Name',
-      location: 'City, Country',
-      period: '2014 - 2016',
-      gpa: '90%',
-      achievements: [
-        'Secured 90% in board examinations',
-        'Participated in various coding competitions',
+        'Graduated in Electrical Engineering with strong foundation in technical problem-solving',
+        'Transitioned to software development, leveraging analytical and technical skills',
+        'Developed passion for web development and full-stack technologies',
       ]
     }
   ]
 
   const certifications = [
     {
-      name: 'Full Stack Web Development',
-      issuer: 'Coursera',
-      year: '2023'
+      name: 'Microsoft Certified: Azure Fundamentals (AZ-900)',
+      issuer: 'Microsoft',
+      year: '2024',
+      link: 'https://learn.microsoft.com/en-in/users/mayurkhairnar-6087/credentials/19164cac4fb66ec9'
+    }
+  ]
+
+  const awards = [
+    {
+      name: 'Cynclified Hackathon 2024',
+      description: 'Secured 3rd place at the Hackathon Cyncly Pune',
+      organization: 'Cyncly',
+      year: '2024'
     },
     {
-      name: 'React - The Complete Guide',
-      issuer: 'Udemy',
+      name: 'Hackathon 2022',
+      description: 'Secured 3rd place at the Hackathon',
+      organization: 'TwentyTwenty Interior Design Software Pvt Ltd',
       year: '2022'
-    },
-    {
-      name: 'Node.js Developer Certification',
-      issuer: 'MongoDB University',
-      year: '2022'
-    },
-    {
-      name: 'AWS Certified Developer',
-      issuer: 'Amazon Web Services',
-      year: '2021'
     }
   ]
 
@@ -71,7 +61,7 @@ const Education = () => {
                     </div>
                     <div className="education-meta">
                       <span className="education-period">{edu.period}</span>
-                      <span className="education-gpa">GPA: {edu.gpa}</span>
+                      {edu.gpa && <span className="education-gpa">GPA: {edu.gpa}</span>}
                       <span className="education-location">{edu.location}</span>
                     </div>
                   </div>
@@ -99,6 +89,32 @@ const Education = () => {
                     <h4>{cert.name}</h4>
                     <p>{cert.issuer}</p>
                     <span className="cert-year">{cert.year}</span>
+                    {cert.link && (
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-link">
+                        View Certificate
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="certifications-section">
+            <h3 className="subsection-title">
+              <FaAward /> Awards & Recognition
+            </h3>
+            <div className="certifications-grid">
+              {awards.map((award, index) => (
+                <div key={index} className="certification-card">
+                  <div className="cert-icon">
+                    <FaAward />
+                  </div>
+                  <div className="cert-content">
+                    <h4>{award.name}</h4>
+                    <p>{award.description}</p>
+                    <p className="award-org">{award.organization}</p>
+                    <span className="cert-year">{award.year}</span>
                   </div>
                 </div>
               ))}

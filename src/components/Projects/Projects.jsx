@@ -4,93 +4,34 @@ import './Projects.css'
 const Projects = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with user authentication, product management, shopping cart, and payment integration.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux'],
-      image: 'https://via.placeholder.com/400x250/2563eb/ffffff?text=E-Commerce+Platform',
-      github: 'https://github.com/yourusername/project',
-      live: 'https://project-demo.com',
+      title: 'Interior Design Software (Spaces Flex, Design Flex)',
+      description: 'Delivered tailored interior design web solutions for 40+ clients at Cyncly, with dynamic UI features and interactive 2D/3D room layout tools for real-time visualization.',
+      technologies: ['React.js', 'Redux', 'JavaScript', 'Material UI', 'Node.js', 'RESTful APIs', 'Azure AD', 'OAuth 2.0'],
+      image: 'https://via.placeholder.com/400x250/2563eb/ffffff?text=Spaces+Flex',
+      github: '#',
+      live: 'https://www.cyncly.com/en/product-overviews/spaces-flex',
       features: [
-        'User authentication and authorization',
-        'Product search and filtering',
-        'Shopping cart and checkout',
-        'Payment integration with Stripe',
-        'Admin dashboard'
+        'Scalable UI features for 40+ clients',
+        'Interactive 2D/3D room layout tools',
+        'RESTful API integration with Node.js backend',
+        'Real-time previews for lead conversions',
+        'Performance optimization with lazy loading',
+        'Secure authentication with Azure AD, KeyCloak, OAuth 2.0, Azure B2C'
       ]
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      technologies: ['React', 'TypeScript', 'Firebase', 'Material-UI'],
-      image: 'https://via.placeholder.com/400x250/3b82f6/ffffff?text=Task+Manager',
-      github: 'https://github.com/yourusername/project',
-      live: 'https://project-demo.com',
+      title: 'Ideal Spaces 6 (Web Application)',
+      description: 'Developed responsive landing pages for desktop, tablet, and mobile at Twenty Twenty Interior Design Software, improving mobile usability and engagement by 20%.',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'Bootstrap', 'Responsive Design'],
+      image: 'https://via.placeholder.com/400x250/3b82f6/ffffff?text=Ideal+Spaces+6',
+      github: '#',
+      live: 'https://www.2020spaces.com/',
       features: [
-        'Real-time collaboration',
-        'Drag and drop task management',
-        'Team workspaces',
-        'File attachments',
-        'Activity tracking'
-      ]
-    },
-    {
-      title: 'Social Media Dashboard',
-      description: 'A comprehensive analytics dashboard for managing multiple social media accounts with insights and scheduling capabilities.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Chart.js', 'OAuth'],
-      image: 'https://via.placeholder.com/400x250/1e40af/ffffff?text=Social+Dashboard',
-      github: 'https://github.com/yourusername/project',
-      live: 'https://project-demo.com',
-      features: [
-        'Multi-platform integration',
-        'Analytics and insights',
-        'Post scheduling',
-        'Engagement tracking',
-        'Custom reports'
-      ]
-    },
-    {
-      title: 'Weather Forecast App',
-      description: 'A beautiful weather application with location-based forecasts, interactive maps, and detailed weather information.',
-      technologies: ['React', 'OpenWeather API', 'Mapbox', 'Tailwind CSS'],
-      image: 'https://via.placeholder.com/400x250/60a5fa/ffffff?text=Weather+App',
-      github: 'https://github.com/yourusername/project',
-      live: 'https://project-demo.com',
-      features: [
-        'Current weather conditions',
-        '7-day forecast',
-        'Interactive weather maps',
-        'Location search',
-        'Favorite locations'
-      ]
-    },
-    {
-      title: 'Blog Platform',
-      description: 'A modern blogging platform with markdown support, categories, tags, and a powerful content management system.',
-      technologies: ['React', 'Express', 'MongoDB', 'JWT', 'Markdown'],
-      image: 'https://via.placeholder.com/400x250/2563eb/ffffff?text=Blog+Platform',
-      github: 'https://github.com/yourusername/project',
-      live: 'https://project-demo.com',
-      features: [
-        'Markdown editor',
-        'Categories and tags',
-        'User comments',
-        'Search functionality',
-        'SEO optimization'
-      ]
-    },
-    {
-      title: 'Portfolio Builder',
-      description: 'A tool to help developers create and customize their portfolio websites with various templates and themes.',
-      technologies: ['React', 'Styled Components', 'Framer Motion', 'Firebase'],
-      image: 'https://via.placeholder.com/400x250/3b82f6/ffffff?text=Portfolio+Builder',
-      github: 'https://github.com/yourusername/project',
-      live: 'https://project-demo.com',
-      features: [
-        'Multiple templates',
-        'Drag and drop builder',
-        'Custom theming',
-        'Export to code',
-        'Hosting integration'
+        'Responsive design for desktop, tablet, and mobile',
+        'Reusable components increasing mobile engagement by 20%',
+        'Cross-browser compatibility and UI consistency',
+        'Reduced page load times',
+        'Collaborated with QA for bug fixes'
       ]
     }
   ]

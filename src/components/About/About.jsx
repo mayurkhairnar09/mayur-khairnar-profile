@@ -8,19 +8,22 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p>
-              I'm a passionate Full-Stack Software Engineer with expertise in building modern, 
-              scalable web applications. With a strong foundation in both frontend and 
-              backend technologies, I love turning complex problems into simple, beautiful, 
-              and intuitive solutions.
+              I'm a Full-Stack Software Engineer with 3+ years of experience specializing in 
+              React.js, JavaScript, Redux, Node.js, and Web APIs. I excel at building modern, 
+              scalable web applications with a focus on performance optimization and exceptional 
+              user experiences.
             </p>
             <p>
-              Based in Pune, Maharashtra, India, my journey in software development started 
-              with a curiosity about how things work, and it has evolved into a career where 
-              I get to create amazing digital experiences every day.
+              Currently working at Cyncly in Pune, Maharashtra, India, I've delivered scalable 
+              UI features for 40+ clients and reduced backend response times by 20% through 
+              optimized RESTful APIs. My expertise extends to Microsoft Azure cloud services, 
+              CI/CD pipelines, and Agile development methodologies.
             </p>
             <p>
-              When I'm not coding, you'll find me exploring new technologies, contributing 
-              to open-source projects, or sharing my knowledge with the developer community.
+              I'm passionate about leveraging cutting-edge technologies to solve complex problems, 
+              and I'm Microsoft Azure Certified (AZ-900). I've also achieved recognition with 3rd 
+              place finishes at Hackathon competitions, demonstrating my ability to innovate under 
+              pressure.
             </p>
             <div className="about-info">
               <div className="info-item">
@@ -29,7 +32,7 @@ const About = () => {
               </div>
               <div className="info-item">
                 <span className="info-label">Email:</span>
-                <span className="info-value">mayur.khairnar@example.com</span>
+                <span className="info-value">mayurkhairnar09@gmail.com</span>
               </div>
               <div className="info-item">
                 <span className="info-label">Location:</span>
@@ -47,16 +50,16 @@ const About = () => {
               <p>Years Experience</p>
             </div>
             <div className="stat-card">
-              <h3>20+</h3>
-              <p>Projects Completed</p>
+              <h3>40+</h3>
+              <p>Clients Served</p>
             </div>
             <div className="stat-card">
-              <h3>15+</h3>
-              <p>Happy Clients</p>
+              <h3>2</h3>
+              <p>Hackathon Awards</p>
             </div>
             <div className="stat-card">
-              <h3>100%</h3>
-              <p>Commitment</p>
+              <h3>Azure</h3>
+              <p>Certified</p>
             </div>
           </div>
         </div>

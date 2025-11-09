@@ -1,35 +1,49 @@
-import { FaReact, FaNode, FaDatabase, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaPython } from 'react-icons/fa'
-import { SiMongodb, SiExpress, SiTailwindcss, SiPostgresql, SiDocker, SiTypescript } from 'react-icons/si'
+import { FaReact, FaNode, FaDatabase, FaHtml5, FaCss3Alt, FaJs, FaGitAlt } from 'react-icons/fa'
+import { SiMongodb, SiExpress, SiMicrosoftsqlserver, SiPostgresql, SiDocker, SiTypescript, SiRedux, SiNextdotjs, SiMaterialui, SiGraphql, SiJest, SiBootstrap, SiWebpack } from 'react-icons/si'
+import { DiJqueryLogo } from 'react-icons/di'
+import { SiMicrosoftazure } from 'react-icons/si'
 import './Skills.css'
 
 const Skills = () => {
   const skillCategories = [
     {
-      category: 'Frontend',
+      category: 'Frontend Technologies',
       skills: [
-        { name: 'React', icon: <FaReact />, level: 90 },
-        { name: 'JavaScript', icon: <FaJs />, level: 95 },
-        { name: 'TypeScript', icon: <SiTypescript />, level: 85 },
+        { name: 'React.js', icon: <FaReact />, level: 95 },
+        { name: 'Redux', icon: <SiRedux />, level: 90 },
+        { name: 'JavaScript (ES6+)', icon: <FaJs />, level: 95 },
+        { name: 'TypeScript', icon: <SiTypescript />, level: 88 },
+        { name: 'Next.js', icon: <SiNextdotjs />, level: 85 },
         { name: 'HTML5', icon: <FaHtml5 />, level: 95 },
-        { name: 'CSS3', icon: <FaCss3Alt />, level: 90 },
-        { name: 'Tailwind CSS', icon: <SiTailwindcss />, level: 88 },
+        { name: 'CSS3', icon: <FaCss3Alt />, level: 95 },
+        { name: 'Material UI', icon: <SiMaterialui />, level: 92 },
       ]
     },
     {
-      category: 'Backend',
+      category: 'Backend & APIs',
       skills: [
-        { name: 'Node.js', icon: <FaNode />, level: 88 },
-        { name: 'Express.js', icon: <SiExpress />, level: 85 },
-        { name: 'MongoDB', icon: <SiMongodb />, level: 87 },
-        { name: 'PostgreSQL', icon: <SiPostgresql />, level: 80 },
-        { name: 'Python', icon: <FaPython />, level: 75 },
+        { name: 'Node.js', icon: <FaNode />, level: 92 },
+        { name: 'Express.js', icon: <SiExpress />, level: 90 },
+        { name: 'RESTful APIs', icon: <FaDatabase />, level: 95 },
+        { name: 'GraphQL', icon: <SiGraphql />, level: 85 },
       ]
     },
     {
-      category: 'Tools & Others',
+      category: 'Database & Cloud',
       skills: [
-        { name: 'Git', icon: <FaGitAlt />, level: 90 },
-        { name: 'Docker', icon: <SiDocker />, level: 75 },
+        { name: 'MongoDB', icon: <SiMongodb />, level: 88 },
+        { name: 'SQL Server', icon: <SiMicrosoftsqlserver />, level: 85 },
+        { name: 'PostgreSQL', icon: <SiPostgresql />, level: 85 },
+        { name: 'Azure Cloud', icon: <SiMicrosoftazure />, level: 90 },
+      ]
+    },
+    {
+      category: 'DevOps & Tools',
+      skills: [
+        { name: 'Azure DevOps', icon: <SiMicrosoftazure />, level: 90 },
+        { name: 'Git/GitHub', icon: <FaGitAlt />, level: 92 },
+        { name: 'Docker', icon: <SiDocker />, level: 80 },
+        { name: 'CI/CD Pipelines', icon: <SiMicrosoftazure />, level: 88 },
       ]
     }
   ]

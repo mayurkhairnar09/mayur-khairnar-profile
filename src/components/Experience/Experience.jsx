@@ -4,40 +4,29 @@ import './Experience.css'
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Company',
-      location: 'City, Country',
-      period: 'Jan 2023 - Present',
+      title: 'Software Engineer',
+      company: 'Cyncly',
+      location: 'Pune, Maharashtra',
+      period: 'Dec 2021 - Present',
       description: [
-        'Led development of multiple full-stack web applications using MERN stack',
-        'Implemented responsive UI components with React and modern CSS frameworks',
-        'Designed and optimized RESTful APIs and database schemas',
-        'Collaborated with cross-functional teams in agile environment',
-        'Mentored junior developers and conducted code reviews',
+        'Delivered scalable UI features using React.js, Redux, and Material UI for a product used by 40+ clients, enhancing user satisfaction',
+        'Reduced backend response time by 20% by developing optimized RESTful APIs using Node.js',
+        'Achieved a 90% deployment success rate by managing Azure deployments and integrating Blob Storage',
+        'Lowered post-release defects by conducting thorough API testing and validation with Postman',
+        'Performed presales estimations for web applications, supporting accurate scoping and cost estimation that led to a 30% increase in proposal win rate',
+        'Provide 24/7 production support: incident detection, triage, root-cause analysis, and rapid remediation of high-severity issues to minimize downtime',
       ]
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Another Tech Company',
-      location: 'City, Country',
-      period: 'Jun 2021 - Dec 2022',
+      title: 'Software Engineer Intern',
+      company: 'Twenty Twenty Interior Design Software Pvt Ltd',
+      location: 'Pune, Maharashtra',
+      period: 'Dec 2021 - May 2022',
       description: [
-        'Developed and maintained web applications using React, Node.js, and MongoDB',
-        'Improved application performance by 40% through code optimization',
-        'Integrated third-party APIs and payment gateways',
-        'Wrote unit tests and performed debugging to ensure code quality',
-      ]
-    },
-    {
-      title: 'Junior Developer',
-      company: 'Startup Inc',
-      location: 'City, Country',
-      period: 'Jan 2020 - May 2021',
-      description: [
-        'Assisted in building responsive web applications',
-        'Participated in daily standups and sprint planning',
-        'Fixed bugs and implemented new features based on requirements',
-        'Learned best practices in modern web development',
+        'Built 20+ responsive web pages using HTML5, CSS3, Bootstrap, JavaScript, and React.js to ensure UI consistency and cross-device compatibility',
+        'Integrated JSON data sources to enable dynamic rendering, reducing manual data handling and improving data reliability',
+        'Developed interactive React applications that enhanced user engagement and improved page load times',
+        'Participated in Agile development with Scrum methodologies, attending daily stand-ups and sprint planning to deliver iterative improvements',
       ]
     }
   ]

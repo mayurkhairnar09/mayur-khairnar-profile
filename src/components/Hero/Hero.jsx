@@ -10,9 +10,9 @@ const Hero = () => {
           <h1 className="hero-name">Mayur Khairnar</h1>
           <h2 className="hero-title">Full-Stack Software Engineer</h2>
           <p className="hero-description">
-            Based in Pune, Maharashtra, India. I build exceptional digital experiences 
-            that combine beautiful design with powerful functionality. Specializing in 
-            the MERN stack and modern web technologies.
+            Based in Pune, Maharashtra, India. Full-stack Software Engineer with 3+ years of experience 
+            in React.js, JavaScript, Redux, Node.js, and Web APIs. Proven expertise in RESTful API integration, 
+            Microsoft Azure, Agile development, and performance optimization. Microsoft Azure Certified.
           </p>
           <div className="hero-buttons">
             <a href="#contact" className="btn btn-primary">
@@ -23,13 +23,13 @@ const Hero = () => {
             </a>
           </div>
           <div className="hero-social">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/mayurkhairnar09" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/mayur-khairnar-2a281a180" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
-            <a href="mailto:your.email@example.com" aria-label="Email">
+            <a href="mailto:mayurkhairnar09@gmail.com" aria-label="Email">
               <FaEnvelope />
             </a>
           </div>
