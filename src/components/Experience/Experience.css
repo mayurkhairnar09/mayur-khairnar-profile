@@ -58,6 +58,10 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
+.dark-mode .experience-content:hover {
+  box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
+}
+
 .experience-header {
   display: flex;
   justify-content: space-between;
@@ -94,6 +98,12 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.dark-mode .experience-period {
+  background: rgba(30, 41, 59, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
 }
 
 .experience-location {

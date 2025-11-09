@@ -115,6 +115,16 @@
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
+.dark-mode .hero-social a {
+  background: rgba(30, 41, 59, 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .hero-social a:hover {
+  background: var(--primary-color);
+  box-shadow: 0 10px 20px rgba(96, 165, 250, 0.4);
+}
+
 .hero-image-wrapper {
   position: relative;
   width: 100%;

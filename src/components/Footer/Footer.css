@@ -4,6 +4,11 @@
   padding: 4rem 0 2rem;
 }
 
+.dark-mode .footer {
+  background: rgba(15, 23, 42, 0.95);
+  border-top: 1px solid var(--border-color);
+}
+
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;

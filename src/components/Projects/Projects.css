@@ -27,6 +27,10 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
+.dark-mode .project-card:hover {
+  box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+}
+
 .project-image {
   position: relative;
   width: 100%;
