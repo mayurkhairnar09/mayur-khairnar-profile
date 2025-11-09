@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react'
-import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'
+import { useState, useEffect, useRef } from 'react'
+import { FaBars, FaTimes, FaMoon, FaSun, FaDesktop } from 'react-icons/fa'
 import './Header.css'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem('darkMode')
-    if (saved !== null) return JSON.parse(saved)
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false)
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('theme')
+    return saved || 'system'
   })
+  const themeMenuRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,16 +21,68 @@ const Header = () => {
   }, [])
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark-mode')
-    } else {
-      document.documentElement.classList.remove('dark-mode')
+    const applyTheme = (selectedTheme) => {
+      let isDark = false
+
+      if (selectedTheme === 'system') {
+        isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      } else {
+        isDark = selectedTheme === 'dark'
+      }
+
+      if (isDark) {
+        document.documentElement.classList.add('dark-mode')
+      } else {
+        document.documentElement.classList.remove('dark-mode')
+      }
     }
-    localStorage.setItem('darkMode', JSON.stringify(isDarkMode))
-  }, [isDarkMode])
+
+    applyTheme(theme)
+    localStorage.setItem('theme', theme)
+
+    // Listen for system theme changes when in system mode
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const handleSystemThemeChange = () => {
+      if (theme === 'system') {
+        applyTheme('system')
+      }
+    }
+
+    mediaQuery.addEventListener('change', handleSystemThemeChange)
+    return () => mediaQuery.removeEventListener('change', handleSystemThemeChange)
+  }, [theme])
+
+  // Close theme menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (themeMenuRef.current && !themeMenuRef.current.contains(event.target)) {
+        setIsThemeMenuOpen(false)
+      }
+    }
+
+    if (isThemeMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isThemeMenuOpen])
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode)
+    // Quick toggle: cycle through light -> dark -> light
+    const currentIsDark = document.documentElement.classList.contains('dark-mode')
+    setTheme(currentIsDark ? 'light' : 'dark')
+  }
+
+  const handleThemeSelect = (selectedTheme) => {
+    setTheme(selectedTheme)
+    setIsThemeMenuOpen(false)
+  }
+
+  const getCurrentIcon = () => {
+    if (theme === 'system') {
+      const systemIsDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      return systemIsDark ? <FaMoon /> : <FaSun />
+    }
+    return theme === 'dark' ? <FaMoon /> : <FaSun />
   }
 
   const navItems = [
@@ -64,13 +117,46 @@ const Header = () => {
         </ul>
 
         <div className="nav-actions">
-          <button 
-            className="theme-toggle" 
-            onClick={toggleDarkMode}
-            aria-label="Toggle dark mode"
-          >
-            {isDarkMode ? <FaSun /> : <FaMoon />}
-          </button>
+          <div className="theme-toggle-wrapper" ref={themeMenuRef}>
+            <button 
+              className="theme-toggle" 
+              onClick={toggleDarkMode}
+              onContextMenu={(e) => {
+                e.preventDefault()
+                setIsThemeMenuOpen(!isThemeMenuOpen)
+              }}
+              onMouseEnter={() => setIsThemeMenuOpen(true)}
+              aria-label="Toggle theme"
+            >
+              {getCurrentIcon()}
+            </button>
+            
+            {isThemeMenuOpen && (
+              <div className="theme-menu">
+                <button
+                  className={`theme-option ${theme === 'light' ? 'active' : ''}`}
+                  onClick={() => handleThemeSelect('light')}
+                >
+                  <FaSun className="theme-icon" />
+                  <span>Light</span>
+                </button>
+                <button
+                  className={`theme-option ${theme === 'dark' ? 'active' : ''}`}
+                  onClick={() => handleThemeSelect('dark')}
+                >
+                  <FaMoon className="theme-icon" />
+                  <span>Dark</span>
+                </button>
+                <button
+                  className={`theme-option ${theme === 'system' ? 'active' : ''}`}
+                  onClick={() => handleThemeSelect('system')}
+                >
+                  <FaDesktop className="theme-icon" />
+                  <span>System</span>
+                </button>
+              </div>
+            )}
+          </div>
 
           <div className="nav-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
