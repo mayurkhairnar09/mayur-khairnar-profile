@@ -25,12 +25,15 @@ const Hero = () => {
           <div className="hero-social">
             <a href="https://github.com/mayurkhairnar09" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <FaGithub />
+              <span className="social-label">GitHub</span>
             </a>
             <a href="https://www.linkedin.com/in/mayur-khairnar-2a281a180" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedin />
+              <span className="social-label">LinkedIn</span>
             </a>
             <a href="mailto:mayurkhairnar09@gmail.com" aria-label="Email">
               <FaEnvelope />
+              <span className="social-label">Email</span>
             </a>
           </div>
         </div>
