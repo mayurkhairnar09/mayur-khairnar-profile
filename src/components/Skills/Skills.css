@@ -83,6 +83,9 @@
   border: 2px solid transparent;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .skill-card::before {
@@ -133,9 +136,25 @@
   font-weight: 600;
   color: var(--text-primary);
   transition: color 0.3s ease;
+  margin-bottom: 0.25rem;
 }
 
 .skill-card:hover .skill-info h4 {
+  color: var(--primary-color);
+}
+
+.skill-learn-more {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-learn-more {
+  opacity: 1;
+  transform: translateY(0);
   color: var(--primary-color);
 }
 
