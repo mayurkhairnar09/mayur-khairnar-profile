@@ -6,12 +6,14 @@ import './Projects.css'
 const PROJECTS_DATA = [
   {
     id: 'spaces-flex',
-    title: 'Interior Design Software (Spaces Flex, Design Flex)',
-    description: 'Delivered tailored interior design web solutions for 40+ clients at Cyncly, with dynamic UI features and interactive 2D/3D room layout tools for real-time visualization.',
+    title: 'Interior Design Software - Spaces Flex / IS7',
+    description: 'Delivered tailored interior design web solutions for 40+ clients at Cyncly, with dynamic UI features and interactive 2D/3D room layout tools for real-time visualization. Professional-grade planning application for kitchen and interior design.',
     technologies: ['React.js', 'Redux', 'JavaScript', 'Material UI', 'Node.js', 'RESTful APIs', 'Azure AD', 'OAuth 2.0'],
-    image: 'https://via.placeholder.com/400x250/2563eb/ffffff?text=Spaces+Flex',
+    image: 'https://via.placeholder.com/400x250/2563eb/ffffff?text=Spaces+Flex+IS7',
     github: null, // Private repository
-    live: 'https://www.cyncly.com/en/product-overviews/spaces-flex',
+    live: 'https://planner.cyncly-idealspaces.com/us/design/new?partnership=isdemositena',
+    demoLink: 'https://www.cyncly.com/en/product-overviews/spaces-flex',
+    clients: ['40+ Enterprise Clients', 'Global Design Professionals'],
     features: [
       'Scalable UI features for 40+ clients',
       'Interactive 2D/3D room layout tools',
@@ -23,18 +25,21 @@ const PROJECTS_DATA = [
   },
   {
     id: 'ideal-spaces',
-    title: 'Ideal Spaces 6 (Web Application)',
-    description: 'Developed responsive landing pages for desktop, tablet, and mobile at Twenty Twenty Interior Design Software, improving mobile usability and engagement by 20%.',
+    title: 'Ideal Spaces 6 (IS6) - Enterprise Web Application',
+    description: 'Developed responsive web application for desktop, tablet, and mobile at Twenty Twenty Interior Design Software. Used by major enterprise clients worldwide including IKEA, LMFR, ROCA, NOBIA, HOMEBASE, REFORM, EGGO, WELDOM, DISCAC, and KABOODLE. Improved mobile usability and engagement by 20%.',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'Bootstrap', 'Responsive Design'],
     image: 'https://via.placeholder.com/400x250/3b82f6/ffffff?text=Ideal+Spaces+6',
     github: null, // Private repository
-    live: 'https://www.2020spaces.com/',
+    live: 'https://idealspaces-demometric-prod.2020-platform.com/index.html',
+    demoLink: 'https://www.2020spaces.com/',
+    clients: ['IKEA', 'LMFR', 'ROCA', 'NOBIA', 'HOMEBASE', 'REFORM', 'EGGO', 'WELDOM', 'DISCAC', 'KABOODLE'],
     features: [
       'Responsive design for desktop, tablet, and mobile',
       'Reusable components increasing mobile engagement by 20%',
       'Cross-browser compatibility and UI consistency',
       'Reduced page load times',
-      'Collaborated with QA for bug fixes'
+      'Collaborated with QA for bug fixes',
+      'Enterprise-grade solution for major global brands'
     ]
   }
 ]
@@ -85,6 +90,16 @@ const ProjectCard = memo(({ project }) => {
       <div className="project-content">
         <h3>{project.title}</h3>
         <p className="project-description">{project.description}</p>
+        {project.clients && project.clients.length > 0 && (
+          <div className="project-clients">
+            <strong>Enterprise Clients:</strong>
+            <div className="client-tags">
+              {project.clients.map((client) => (
+                <span key={client} className="client-tag">{client}</span>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="project-tech">
           {project.technologies.map((tech) => (
             <span key={tech} className="tech-tag">{tech}</span>
