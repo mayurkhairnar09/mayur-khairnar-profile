@@ -7,17 +7,20 @@ const PROJECTS_DATA = [
   {
     id: 'spaces-flex',
     title: 'Interior Design Software - Spaces Flex / IS7',
-    description: 'Delivered tailored interior design web solutions for 40+ clients at Cyncly, with dynamic UI features and interactive 2D/3D room layout tools for real-time visualization. Professional-grade planning application for kitchen and interior design.',
-    technologies: ['React.js', 'Redux', 'JavaScript', 'Material UI', 'Node.js', 'RESTful APIs', 'Azure AD', 'OAuth 2.0'],
+    description: 'Enterprise-grade microservices-based web application for interior design at Cyncly. Delivered tailored solutions for 40+ clients with dynamic UI features and interactive 2D/3D room layout tools for real-time visualization. Professional-grade planning application for kitchen, bathroom, offices and interior design using modern cloud architecture.',
+    technologies: ['React.js', 'TypeScript', 'Redux', 'Node.js', 'C#', '.NET Core', 'MongoDB', 'Azure Cloud', 'Microservices', 'RESTful APIs', 'Material UI', 'Azure AD', 'OAuth 2.0'],
     image: 'https://via.placeholder.com/400x250/2563eb/ffffff?text=Spaces+Flex+IS7',
     github: null, // Private repository
     live: 'https://planner.cyncly-idealspaces.com/us/design/new?partnership=isdemositena',
     demoLink: 'https://www.cyncly.com/en/product-overviews/spaces-flex',
-    clients: ['40+ Enterprise Clients', 'Global Design Professionals'],
+    clients: ['ADEO', 'MITRE10', 'FACQ', 'AUBDADE', 'ENVIA', 'CTA', 'CCAG', 'DIVIAN', 'XXL', 'ROCA', 'LAUFEN', 'KABOODLE', 'TKD', 'MONOSERRA'],
     features: [
-      'Scalable UI features for 40+ clients',
+      'Microservices architecture for scalability',
+      'Full-stack development with React, TypeScript, Node.js, .NET Core, C#',
+      'MongoDB database for flexible data management',
+      'Azure Cloud infrastructure and deployment',
       'Interactive 2D/3D room layout tools',
-      'RESTful API integration with Node.js backend',
+      'RESTful API integration across services',
       'Real-time previews for lead conversions',
       'Performance optimization with lazy loading',
       'Secure authentication with Azure AD, KeyCloak, OAuth 2.0, Azure B2C'
@@ -32,7 +35,7 @@ const PROJECTS_DATA = [
     github: null, // Private repository
     live: 'https://idealspaces-demometric-prod.2020-platform.com/index.html',
     demoLink: 'https://www.2020spaces.com/',
-    clients: ['IKEA', 'LMFR', 'ROCA', 'NOBIA', 'HOMEBASE', 'REFORM', 'EGGO', 'WELDOM', 'DISCAC', 'KABOODLE'],
+    clients: ['IKEA', 'LMFR', 'ROCA', 'SGDBF','ROXOR', 'NOBIA', 'HOMEBASE', 'REFORM', 'EGGO', 'WELDOM', 'DISCAC', 'KABOODLE'],
     features: [
       'Responsive design for desktop, tablet, and mobile',
       'Reusable components increasing mobile engagement by 20%',
