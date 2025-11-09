@@ -1,5 +1,5 @@
 import { FaReact, FaNode, FaDatabase, FaHtml5, FaCss3Alt, FaJs, FaGitAlt } from 'react-icons/fa'
-import { SiMongodb, SiExpress, SiMicrosoftsqlserver, SiPostgresql, SiDocker, SiTypescript, SiRedux, SiNextdotjs, SiMui, SiMicrosoftazure } from 'react-icons/si'
+import { SiMongodb, SiExpress, SiMicrosoftsqlserver, SiPostgresql, SiDocker, SiTypescript, SiRedux, SiNextdotjs, SiMui, SiAzuredevops } from 'react-icons/si'
 import { memo, useMemo } from 'react'
 import './Skills.css'
 
@@ -27,7 +27,7 @@ const SKILL_CATEGORIES = [
       { id: 'expressjs', name: 'Express.js', icon: SiExpress },
       { id: 'restful', name: 'RESTful APIs', icon: FaDatabase },
       { id: 'microservices', name: 'Microservices', icon: FaNode },
-      { id: 'azurefunctions', name: 'Azure Functions', icon: SiMicrosoftazure },
+      { id: 'azurefunctions', name: 'Azure Functions', icon: SiAzuredevops },
     ]
   },
   {
@@ -37,17 +37,17 @@ const SKILL_CATEGORIES = [
       { id: 'mongodb', name: 'MongoDB', icon: SiMongodb },
       { id: 'sqlserver', name: 'SQL Server', icon: SiMicrosoftsqlserver },
       { id: 'postgresql', name: 'PostgreSQL', icon: SiPostgresql },
-      { id: 'azure', name: 'Azure Cloud', icon: SiMicrosoftazure },
+      { id: 'azure', name: 'Azure Cloud', icon: SiAzuredevops },
     ]
   },
   {
     id: 'devops',
     category: 'DevOps & Tools',
     skills: [
-      { id: 'azuredevops', name: 'Azure DevOps', icon: SiMicrosoftazure },
+      { id: 'azuredevops', name: 'Azure DevOps', icon: SiAzuredevops },
       { id: 'git', name: 'Git/GitHub', icon: FaGitAlt },
       { id: 'docker', name: 'Docker', icon: SiDocker },
-      { id: 'cicd', name: 'CI/CD Pipelines', icon: SiMicrosoftazure },
+      { id: 'cicd', name: 'CI/CD Pipelines', icon: SiAzuredevops },
     ]
   }
 ]
