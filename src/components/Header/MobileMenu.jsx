@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FaBars, FaTimes, FaHome, FaUser, FaCode, FaBriefcase, FaGraduationCap, FaProjectDiagram, FaEnvelope } from 'react-icons/fa'
-import './MobileMenu.css'
 
 const MobileMenu = ({ isOpen, onToggle, navItems, onNavClick }) => {
   const iconMap = {
