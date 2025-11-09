@@ -1,26 +1,57 @@
+import { lazy, Suspense } from 'react'
 import './App.css'
-import Header from './components/Header/Header'
-import Hero from './components/Hero/Hero'
-import About from './components/About/About'
-import Skills from './components/Skills/Skills'
-import Experience from './components/Experience/Experience'
-import Education from './components/Education/Education'
-import Projects from './components/Projects/Projects'
-import Contact from './components/Contact/Contact'
-import Footer from './components/Footer/Footer'
+
+// Lazy load all components for better performance
+const Header = lazy(() => import('./components/Header/Header'))
+const Hero = lazy(() => import('./components/Hero/Hero'))
+const About = lazy(() => import('./components/About/About'))
+const Skills = lazy(() => import('./components/Skills/Skills'))
+const Experience = lazy(() => import('./components/Experience/Experience'))
+const Projects = lazy(() => import('./components/Projects/Projects'))
+const Education = lazy(() => import('./components/Education/Education'))
+const Contact = lazy(() => import('./components/Contact/Contact'))
+const Footer = lazy(() => import('./components/Footer/Footer'))
+
+// Loading component with section name
+const SectionLoader = ({ sectionName }) => (
+  <div className="section-loader">
+    <div className="loader-container">
+      <div className="spinner"></div>
+      <p className="loader-text">Loading {sectionName}...</p>
+    </div>
+  </div>
+)
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Education />
-      <Projects />
-      <Contact />
-      <Footer />
+      <Suspense fallback={<SectionLoader sectionName="Navigation" />}>
+        <Header />
+      </Suspense>
+      <Suspense fallback={<SectionLoader sectionName="Hero Section" />}>
+        <Hero />
+      </Suspense>
+      <Suspense fallback={<SectionLoader sectionName="About" />}>
+        <About />
+      </Suspense>
+      <Suspense fallback={<SectionLoader sectionName="Skills" />}>
+        <Skills />
+      </Suspense>
+      <Suspense fallback={<SectionLoader sectionName="Experience" />}>
+        <Experience />
+      </Suspense>
+      <Suspense fallback={<SectionLoader sectionName="Education" />}>
+        <Education />
+      </Suspense>
+      <Suspense fallback={<SectionLoader sectionName="Projects" />}>
+        <Projects />
+      </Suspense>
+      <Suspense fallback={<SectionLoader sectionName="Contact" />}>
+        <Contact />
+      </Suspense>
+      <Suspense fallback={<SectionLoader sectionName="Footer" />}>
+        <Footer />
+      </Suspense>
     </div>
   )
 }
