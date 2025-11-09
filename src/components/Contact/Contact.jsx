@@ -1,13 +1,10 @@
-import { useState, useCallback, memo } from 'react'
+import { useState, useCallback, memo, useMemo } from 'react'
+import PropTypes from 'prop-types'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa'
+import LoadingState from '../common/LoadingState'
+import ErrorState from '../common/ErrorState'
+import { usePersonalData } from '../../hooks/usePublicData'
 import './Contact.css'
-
-// Contact information - moved outside component for optimization
-const CONTACT_INFO = {
-  email: 'mayurkhairnar09@gmail.com',
-  phone: '+917385564656',
-  location: 'Pune, Maharashtra, India'
-}
 
 // Memoized contact item component
 const ContactItem = memo(({ icon: Icon, title, content, href, type }) => (
@@ -29,8 +26,19 @@ const ContactItem = memo(({ icon: Icon, title, content, href, type }) => (
 ))
 
 ContactItem.displayName = 'ContactItem'
+ContactItem.propTypes = {
+  icon: PropTypes.elementType.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  type: PropTypes.string
+}
 
 const Contact = () => {
+  const { data, loading, error, refetch } = usePersonalData()
+  const personalInfo = useMemo(() => data || {}, [data])
+  const { email = '', phone = '', location = '' } = personalInfo
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -55,16 +63,57 @@ const Contact = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    
+    // Validate form data
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatus('Please fill in all required fields.')
+      setIsSubmitting(false)
+      setTimeout(() => setStatus(''), 3000)
+      return
+    }
+
+    if (!emailRegex.test(formData.email)) {
+      setStatus('Please enter a valid email address.')
+      setIsSubmitting(false)
+      setTimeout(() => setStatus(''), 3000)
+      return
+    }
+    
     // Simulate form submission (replace with actual API call)
     setTimeout(() => {
       setStatus('Message sent successfully!')
       setIsSubmitting(false)
-      
-      // Clear form and status
-      setTimeout(() => setStatus(''), 3000)
       setFormData({ name: '', email: '', subject: '', message: '' })
+      setTimeout(() => setStatus(''), 3000)
     }, 1000)
   }, [formData])
+
+  if (loading) {
+    return (
+      <section id="contact" className="section contact">
+        <div className="container">
+          <h2 className="section-title">Get In Touch</h2>
+          <LoadingState message="Loading contact information..." />
+        </div>
+      </section>
+    )
+  }
+
+  if (error || !email) {
+    return (
+      <section id="contact" className="section contact">
+        <div className="container">
+          <h2 className="section-title">Get In Touch</h2>
+          <ErrorState 
+            message="Unable to load contact information." 
+            onRetry={refetch}
+          />
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="contact" className="section contact">
@@ -83,26 +132,30 @@ const Contact = () => {
               <ContactItem 
                 icon={FaEnvelope}
                 title="Email"
-                content={CONTACT_INFO.email}
-                href={`mailto:${CONTACT_INFO.email}`}
+                content={email}
+                href={`mailto:${email}`}
                 type="Email"
               />
               
-              <ContactItem 
-                icon={FaPhone}
-                title="Phone"
-                content={CONTACT_INFO.phone}
-                href={`tel:${CONTACT_INFO.phone}`}
-                type="Call"
-              />
+              {phone && (
+                <ContactItem 
+                  icon={FaPhone}
+                  title="Phone"
+                  content={phone}
+                  href={`tel:${phone}`}
+                  type="Call"
+                />
+              )}
               
-              <ContactItem 
-                icon={FaMapMarkerAlt}
-                title="Location"
-                content={CONTACT_INFO.location}
-                href={null}
-                type={null}
-              />
+              {location && (
+                <ContactItem 
+                  icon={FaMapMarkerAlt}
+                  title="Location"
+                  content={location}
+                  href={null}
+                  type={null}
+                />
+              )}
             </div>
           </div>
 

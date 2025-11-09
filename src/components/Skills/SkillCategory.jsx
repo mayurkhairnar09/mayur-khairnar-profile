@@ -1,7 +1,6 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import PropTypes from 'prop-types'
 import SkillCard from './SkillCard'
-import './SkillCategory.css'
 
 const SkillCategory = memo(({ category }) => (
   <div className="skill-category">
@@ -20,7 +19,14 @@ SkillCategory.propTypes = {
   category: PropTypes.shape({
     id: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
-    skills: PropTypes.array.isRequired,
+    skills: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        icon: PropTypes.string,
+        level: PropTypes.string
+      })
+    ).isRequired,
   }).isRequired,
 }
 

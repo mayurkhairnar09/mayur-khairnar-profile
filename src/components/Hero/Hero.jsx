@@ -1,18 +1,89 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { useMemo, memo } from 'react'
+import SocialLinks from '../common/SocialLinks'
+import LoadingState from '../common/LoadingState'
+import ErrorState from '../common/ErrorState'
+import { usePersonalData } from '../../hooks/usePublicData'
 import './Hero.css'
 
+// Memoized sub-components
+const HeroIllustration = memo(() => (
+  <div className="developer-illustration">
+    <div className="code-editor">
+      <div className="editor-header">
+        <span className="dot dot-red"></span>
+        <span className="dot dot-yellow"></span>
+        <span className="dot dot-green"></span>
+      </div>
+      <div className="editor-content">
+        <div className="code-line">
+          <span className="keyword">const</span> <span className="variable">developer</span> = <span className="bracket">{'{'}</span>
+        </div>
+        <div className="code-line indent">
+          <span className="property">name:</span> <span className="string">'Mayur'</span>,
+        </div>
+        <div className="code-line indent">
+          <span className="property">role:</span> <span className="string">'Full-Stack'</span>,
+        </div>
+        <div className="code-line indent">
+          <span className="property">skills:</span> <span className="bracket">['React', 'Node']</span>,
+        </div>
+        <div className="code-line">
+          <span className="bracket">{'}'}</span>
+        </div>
+      </div>
+    </div>
+    <div className="floating-icons">
+      <div className="float-icon icon-1">{'<>'}</div>
+      <div className="float-icon icon-2">{'{}'}</div>
+      <div className="float-icon icon-3">{'</>'}</div>
+      <div className="float-icon icon-4">{'()'}</div>
+    </div>
+  </div>
+))
+
+HeroIllustration.displayName = 'HeroIllustration'
+
 const Hero = () => {
+  const { data, loading, error, refetch } = usePersonalData()
+  const personalInfo = useMemo(() => data || {}, [data])
+  const { name = '', title = '', location = '', summary = {} } = personalInfo
+  const { yearsOfExperience = '', expertise = [], achievements = {} } = summary
+
+  if (loading) {
+    return (
+      <section id="hero" className="hero">
+        <div className="container hero-container">
+          <LoadingState message="Loading profile..." minHeight="400px" />
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section id="hero" className="hero">
+        <div className="container hero-container">
+          <ErrorState
+            message="Unable to load profile data. Please try again."
+            onRetry={refetch}
+            minHeight="400px"
+          />
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section id="hero" className="hero">
       <div className="container hero-container">
         <div className="hero-content">
           <p className="hero-greeting">Hello, I'm</p>
-          <h1 className="hero-name">Mayur Khairnar</h1>
-          <h2 className="hero-title">Full-Stack Software Engineer</h2>
+          <h1 className="hero-name">{name}</h1>
+          <h2 className="hero-title">{title}</h2>
           <p className="hero-description">
-            Based in Pune, Maharashtra, India. Full-stack Software Engineer with 4+ years of experience 
-            building scalable, high-performance web applications using React.js, Node.js, and Microsoft Azure. 
-            Improved frontend performance by 25% and reduced backend latency by 20%. Microsoft Azure Certified.
+            Based in {location}. {title} with {yearsOfExperience} years of experience
+            building scalable, high-performance web applications using {expertise.join(', ')}.
+            Improved frontend performance by {achievements.performanceImprovement} and reduced backend latency by {achievements.latencyReduction}. Microsoft Azure Certified.
           </p>
           <div className="hero-buttons">
             <a href="#contact" className="btn btn-primary">
@@ -22,61 +93,16 @@ const Hero = () => {
               View Projects
             </a>
           </div>
-          <div className="hero-social">
-            <a href="https://github.com/mayurkhairnar09" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <FaGithub />
-              <span className="social-label">GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/mayur-khairnar-2a281a180" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <FaLinkedin />
-              <span className="social-label">LinkedIn</span>
-            </a>
-            <a href="mailto:mayurkhairnar09@gmail.com" aria-label="Email">
-              <FaEnvelope />
-              <span className="social-label">Email</span>
-            </a>
-          </div>
+          <SocialLinks className="hero-social" showLabels={true} />
         </div>
         <div className="hero-image">
           <div className="hero-image-wrapper">
-            {/* Developer illustration with code elements */}
-            <div className="developer-illustration">
-              <div className="code-editor">
-                <div className="editor-header">
-                  <span className="dot dot-red"></span>
-                  <span className="dot dot-yellow"></span>
-                  <span className="dot dot-green"></span>
-                </div>
-                <div className="editor-content">
-                  <div className="code-line">
-                    <span className="keyword">const</span> <span className="variable">developer</span> = <span className="bracket">{'{'}</span>
-                  </div>
-                  <div className="code-line indent">
-                    <span className="property">name:</span> <span className="string">'Mayur'</span>,
-                  </div>
-                  <div className="code-line indent">
-                    <span className="property">role:</span> <span className="string">'Full-Stack'</span>,
-                  </div>
-                  <div className="code-line indent">
-                    <span className="property">skills:</span> <span className="bracket">['React', 'Node']</span>,
-                  </div>
-                  <div className="code-line">
-                    <span className="bracket">{'}'}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="floating-icons">
-                <div className="float-icon icon-1">{'<>'}</div>
-                <div className="float-icon icon-2">{'{}'}</div>
-                <div className="float-icon icon-3">{'</>'}</div>
-                <div className="float-icon icon-4">{'()'}</div>
-              </div>
-            </div>
+            <HeroIllustration />
           </div>
         </div>
       </div>
       <div className="hero-scroll">
-        <a href="#about" className="scroll-down">
+        <a href="#about" className="scroll-down" aria-label="Scroll to About section">
           <span></span>
           <span></span>
           <span></span>

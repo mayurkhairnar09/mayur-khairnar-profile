@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+import PropTypes from 'prop-types'
 import './App.css'
 
 // Lazy load all components for better performance
@@ -21,6 +22,10 @@ const SectionLoader = ({ sectionName }) => (
     </div>
   </div>
 )
+
+SectionLoader.propTypes = {
+  sectionName: PropTypes.string.isRequired
+}
 
 function App() {
   return (

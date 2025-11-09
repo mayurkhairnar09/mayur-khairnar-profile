@@ -1,0 +1,87 @@
+{
+  "name": "Mayur Khairnar",
+  "title": "Full-Stack Software Engineer",
+  "email": "mayurkhairnar09@gmail.com",
+  "phone": "+917385564656",
+  "location": "Pune, Maharashtra, India",
+  "status": "Available for opportunities",
+  
+  "summary": {
+    "yearsOfExperience": "4+",
+    "currentCompany": "Cyncly",
+    "expertise": ["React.js", "Node.js", "Microsoft Azure"],
+    "achievements": {
+      "performanceImprovement": "25%",
+      "latencyReduction": "20%",
+      "deploymentSuccess": "90%+",
+      "defectReduction": "25%"
+    }
+  },
+  
+  "bio": {
+    "intro": "I'm a Full-Stack Software Engineer with 4+ years of experience building scalable, high-performance, and user-centric web applications using React.js, Node.js, and Microsoft Azure. I thrive in fast-paced, collaborative environments where I can solve complex problems and write clean, scalable code.",
+    "current": "Currently working at Cyncly in Pune, Maharashtra, India, I've delivered impactful results: improved frontend performance by 25% through optimized React.js components and lazy loading, reduced backend latency by 20% with clean Node.js APIs and microservices, achieved 90%+ deployment success with CI/CD pipelines, and cut post-release defects by 25% through rigorous testing.",
+    "passion": "I'm passionate about building meaningful products and growing into a technical leadership role. Microsoft Azure Certified (AZ-900), I've also secured 3rd place at multiple Hackathon competitions, demonstrating my ability to innovate under pressure and deliver results."
+  },
+  
+  "social": [
+    {
+      "id": "github",
+      "icon": "FaGithub",
+      "href": "https://github.com/mayurkhairnar09",
+      "label": "GitHub",
+      "ariaLabel": "GitHub Profile"
+    },
+    {
+      "id": "linkedin",
+      "icon": "FaLinkedin",
+      "href": "https://www.linkedin.com/in/mayur-khairnar-2a281a180",
+      "label": "LinkedIn",
+      "ariaLabel": "LinkedIn Profile"
+    },
+    {
+      "id": "instagram",
+      "icon": "FaInstagram",
+      "href": "https://www.instagram.com/x___mr.classy___x",
+      "label": "Instagram",
+      "ariaLabel": "Instagram Profile"
+    },
+    {
+      "id": "facebook",
+      "icon": "FaFacebook",
+      "href": "https://www.facebook.com/mayur.r.khairnar",
+      "label": "Facebook",
+      "ariaLabel": "Facebook Profile"
+    },
+    {
+      "id": "email",
+      "icon": "FaEnvelope",
+      "href": "mailto:mayurkhairnar09@gmail.com",
+      "label": "Email",
+      "ariaLabel": "Send Email"
+    }
+  ],
+  
+  "stats": [
+    {
+      "id": "experience",
+      "value": "4+",
+      "label": "Years Experience"
+    },
+    {
+      "id": "performance",
+      "value": "25%",
+      "label": "Performance Boost"
+    },
+    {
+      "id": "deployment",
+      "value": "90%+",
+      "label": "Deployment Success"
+    },
+    {
+      "id": "certification",
+      "value": "Azure",
+      "label": "Certified"
+    }
+  ]
+}

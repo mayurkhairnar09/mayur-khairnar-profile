@@ -1,9 +1,9 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import PropTypes from 'prop-types'
-import './SkillCard.css'
+import { getIcon } from '../../utils/iconMapper'
 
 const SkillCard = memo(({ skill }) => {
-  const IconComponent = skill.icon
+  const IconComponent = getIcon(skill.icon)
   
   return (
     <a 
@@ -30,7 +30,7 @@ SkillCard.propTypes = {
   skill: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    icon: PropTypes.elementType.isRequired,
+    icon: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
   }).isRequired,
 }

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
+import { FaHome, FaUser, FaCode, FaBriefcase, FaGraduationCap, FaProjectDiagram, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa'
 import ThemeToggle from './ThemeToggle'
-import MobileMenu from './MobileMenu'
 import './Header.css'
 
 const Header = () => {
@@ -50,7 +50,17 @@ const Header = () => {
     return () => mediaQuery.removeEventListener('change', handleSystemThemeChange)
   }, [theme])
 
-  const navItems = [
+  const iconMap = useMemo(() => ({
+    'Home': <FaHome />,
+    'About': <FaUser />,
+    'Skills': <FaCode />,
+    'Experience': <FaBriefcase />,
+    'Education': <FaGraduationCap />,
+    'Projects': <FaProjectDiagram />,
+    'Contact': <FaEnvelope />,
+  }), [])
+
+  const navItems = useMemo(() => [
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
@@ -58,30 +68,60 @@ const Header = () => {
     { name: 'Education', href: '#education' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
-  ]
+  ], [])
 
-  const handleNavClick = () => {
+  const handleNavClick = useCallback(() => {
     setIsMobileMenuOpen(false)
-  }
+  }, [])
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev)
+  }, [])
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="container nav">
-        <MobileMenu 
-          isOpen={isMobileMenuOpen}
-          onToggle={toggleMobileMenu}
-          navItems={navItems}
-          onNavClick={handleNavClick}
-        />
-
-        <div className="nav-brand">
-          <a href="#hero">Mayur Khairnar</a>
+        {/* Mobile Menu Toggle */}
+        <div 
+          className="nav-toggle" 
+          onClick={toggleMobileMenu}
+          role="button"
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          tabIndex={0}
+        >
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </div>
 
+        {/* Navigation Menu (Desktop + Mobile) */}
+        <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+          {navItems.map((item) => (
+            <li key={item.name} className="nav-item">
+              <a 
+                href={item.href} 
+                className={`nav-link ${isMobileMenuOpen ? 'mobile-nav-link' : ''}`}
+                onClick={handleNavClick}
+                aria-label={`Navigate to ${item.name}`}
+              >
+                <span className="nav-icon">{iconMap[item.name]}</span>
+                <span className="nav-label">{item.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Menu Backdrop */}
+        {isMobileMenuOpen && (
+          <div 
+            className="nav-backdrop" 
+            onClick={toggleMobileMenu}
+            role="button"
+            aria-label="Close menu"
+            tabIndex={0}
+          />
+        )}
+
+        {/* Theme Toggle */}
         <div className="nav-actions">
           <ThemeToggle theme={theme} onThemeChange={setTheme} />
         </div>

@@ -1,0 +1,340 @@
+{
+    "categories": [
+        {
+            "id": "frontend",
+            "category": "Frontend Technologies",
+            "skills": [
+                {
+                    "id": "react",
+                    "name": "React.js",
+                    "icon": "FaReact",
+                    "link": "https://react.dev/learn"
+                },
+                {
+                    "id": "nextjs",
+                    "name": "Next.js",
+                    "icon": "SiNextdotjs",
+                    "link": "https://nextjs.org/docs"
+                },
+                {
+                    "id": "redux",
+                    "name": "Redux",
+                    "icon": "SiRedux",
+                    "link": "https://redux.js.org/introduction/getting-started"
+                },
+                {
+                    "id": "typescript",
+                    "name": "TypeScript",
+                    "icon": "SiTypescript",
+                    "link": "https://www.typescriptlang.org/docs/"
+                },
+                {
+                    "id": "javascript",
+                    "name": "JavaScript (ES6+)",
+                    "icon": "FaJs",
+                    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+                },
+                {
+                    "id": "html5",
+                    "name": "HTML5",
+                    "icon": "FaHtml5",
+                    "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+                },
+                {
+                    "id": "css3",
+                    "name": "CSS3",
+                    "icon": "FaCss3Alt",
+                    "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+                },
+                {
+                    "id": "materialui",
+                    "name": "Material UI",
+                    "icon": "SiMui",
+                    "link": "https://mui.com/material-ui/getting-started/"
+                },
+                {
+                    "id": "jquery",
+                    "name": "jQuery",
+                    "icon": "SiJquery",
+                    "link": "https://jquery.com/"
+                },
+                {
+                    "id": "ajax",
+                    "name": "AJAX",
+                    "icon": "FaCode",
+                    "link": "https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX"
+                }
+            ]
+        },
+        {
+            "id": "backend",
+            "category": "Backend Technologies",
+            "skills": [
+                {
+                    "id": "webapi",
+                    "name": "Web API",
+                    "icon": "FaDatabase",
+                    "link": "https://learn.microsoft.com/en-us/aspnet/core/web-api/"
+                },
+                {
+                    "id": "nodejs",
+                    "name": "Node.js",
+                    "icon": "FaNode",
+                    "link": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs"
+                },
+                {
+                    "id": "expressjs",
+                    "name": "Express.js",
+                    "icon": "SiExpress",
+                    "link": "https://expressjs.com/en/starter/installing.html"
+                },
+                {
+                    "id": "csharp",
+                    "name": "C#",
+                    "icon": "SiDotnet",
+                    "link": "https://learn.microsoft.com/en-us/dotnet/csharp/"
+                },
+                {
+                    "id": "graphql",
+                    "name": "GraphQL",
+                    "icon": "SiGraphql",
+                    "link": "https://graphql.org/learn/"
+                },
+                {
+                    "id": "jwt",
+                    "name": "JWT",
+                    "icon": "SiJsonwebtokens",
+                    "link": "https://jwt.io/introduction"
+                }
+            ]
+        },
+        {
+            "id": "database",
+            "category": "Databases & Cloud Storage",
+            "skills": [
+                {
+                    "id": "mongodb",
+                    "name": "MongoDB",
+                    "icon": "SiMongodb",
+                    "link": "https://www.mongodb.com/docs/"
+                },
+                {
+                    "id": "sqlserver",
+                    "name": "Microsoft SQL Server",
+                    "icon": "SiMysql",
+                    "link": "https://learn.microsoft.com/en-us/sql/sql-server/"
+                },
+                {
+                    "id": "postgresql",
+                    "name": "PostgreSQL",
+                    "icon": "SiPostgresql",
+                    "link": "https://www.postgresql.org/docs/"
+                },
+                {
+                    "id": "azureblob",
+                    "name": "Azure Blob Storage",
+                    "icon": "VscAzure",
+                    "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/"
+                }
+            ]
+        },
+        {
+            "id": "authentication",
+            "category": "Authentication & Authorization",
+            "skills": [
+                {
+                    "id": "azuread",
+                    "name": "Azure Active Directory (Azure AD)",
+                    "icon": "VscAzure",
+                    "link": "https://learn.microsoft.com/en-us/azure/active-directory/"
+                },
+                {
+                    "id": "keycloak",
+                    "name": "Keycloak",
+                    "icon": "FaLock",
+                    "link": "https://www.keycloak.org/documentation"
+                },
+                {
+                    "id": "oauth",
+                    "name": "OAuth 2.0",
+                    "icon": "FaLock",
+                    "link": "https://oauth.net/2/"
+                },
+                {
+                    "id": "azureb2c",
+                    "name": "Azure B2C",
+                    "icon": "VscAzure",
+                    "link": "https://learn.microsoft.com/en-us/azure/active-directory-b2c/"
+                }
+            ]
+        },
+        {
+            "id": "clouddevops",
+            "category": "Cloud & DevOps",
+            "skills": [
+                {
+                    "id": "azuredevops",
+                    "name": "Azure DevOps",
+                    "icon": "VscAzure",
+                    "link": "https://learn.microsoft.com/en-us/azure/devops/"
+                },
+                {
+                    "id": "cicd",
+                    "name": "CI/CD Pipelines (YAML)",
+                    "icon": "FaCogs",
+                    "link": "https://learn.microsoft.com/en-us/azure/devops/pipelines/"
+                },
+                {
+                    "id": "azurefunctions",
+                    "name": "Azure Function Apps",
+                    "icon": "FaBolt",
+                    "link": "https://learn.microsoft.com/en-us/azure/azure-functions/"
+                },
+                {
+                    "id": "appinsights",
+                    "name": "Application Insights",
+                    "icon": "FaLightbulb",
+                    "link": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview"
+                },
+                {
+                    "id": "github",
+                    "name": "GitHub",
+                    "icon": "SiGithub",
+                    "link": "https://docs.github.com/en/get-started"
+                },
+                {
+                    "id": "docker",
+                    "name": "Docker",
+                    "icon": "SiDocker",
+                    "link": "https://docs.docker.com/get-started/"
+                },
+                {
+                    "id": "agile",
+                    "name": "Agile/Scrum",
+                    "icon": "FaCogs",
+                    "link": "https://www.scrum.org/resources/what-is-scrum"
+                }
+            ]
+        },
+        {
+            "id": "api",
+            "category": "API & Development Practices",
+            "skills": [
+                {
+                    "id": "restful",
+                    "name": "RESTful APIs",
+                    "icon": "FaDatabase",
+                    "link": "https://restfulapi.net/"
+                },
+                {
+                    "id": "json",
+                    "name": "JSON",
+                    "icon": "FaCode",
+                    "link": "https://www.json.org/json-en.html"
+                },
+                {
+                    "id": "xml",
+                    "name": "XML",
+                    "icon": "FaCode",
+                    "link": "https://www.w3.org/XML/"
+                },
+                {
+                    "id": "postman",
+                    "name": "Postman",
+                    "icon": "SiPostman",
+                    "link": "https://learning.postman.com/"
+                },
+                {
+                    "id": "jest",
+                    "name": "Jest",
+                    "icon": "SiJest",
+                    "link": "https://jestjs.io/docs/getting-started"
+                },
+                {
+                    "id": "performance",
+                    "name": "Performance Optimization",
+                    "icon": "FaCogs",
+                    "link": "https://web.dev/performance/"
+                },
+                {
+                    "id": "debugging",
+                    "name": "Debugging",
+                    "icon": "FaTools",
+                    "link": "https://developer.chrome.com/docs/devtools/"
+                }
+            ]
+        },
+        {
+            "id": "tools",
+            "category": "Tools & IDEs",
+            "skills": [
+                {
+                    "id": "visualstudio",
+                    "name": "Visual Studio",
+                    "icon": "VscVscode",
+                    "link": "https://visualstudio.microsoft.com/vs/"
+                },
+                {
+                    "id": "vscode",
+                    "name": "Visual Studio Code",
+                    "icon": "VscVscode",
+                    "link": "https://code.visualstudio.com/docs"
+                },
+                {
+                    "id": "git",
+                    "name": "Git",
+                    "icon": "FaGitAlt",
+                    "link": "https://git-scm.com/doc"
+                },
+                {
+                    "id": "ssms",
+                    "name": "SSMS",
+                    "icon": "FaDatabase",
+                    "link": "https://learn.microsoft.com/en-us/sql/ssms/"
+                },
+                {
+                    "id": "npm",
+                    "name": "NPM",
+                    "icon": "SiNpm",
+                    "link": "https://docs.npmjs.com/"
+                },
+                {
+                    "id": "webpack",
+                    "name": "Webpack",
+                    "icon": "SiWebpack",
+                    "link": "https://webpack.js.org/concepts/"
+                },
+                {
+                    "id": "bootstrapstudio",
+                    "name": "Bootstrap Studio",
+                    "icon": "SiBootstrap",
+                    "link": "https://bootstrapstudio.io/"
+                }
+            ]
+        },
+        {
+            "id": "ai",
+            "category": "AI Tools",
+            "skills": [
+                {
+                    "id": "copilot",
+                    "name": "GitHub Copilot",
+                    "icon": "SiGithub",
+                    "link": "https://github.com/features/copilot"
+                },
+                {
+                    "id": "chatgpt",
+                    "name": "ChatGPT",
+                    "icon": "SiOpenai",
+                    "link": "https://openai.com/chatgpt"
+                },
+                {
+                    "id": "openai",
+                    "name": "OpenAI API",
+                    "icon": "SiOpenai",
+                    "link": "https://platform.openai.com/docs/"
+                }
+            ]
+        }
+    ]
+}

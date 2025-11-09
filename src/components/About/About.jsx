@@ -1,20 +1,9 @@
-import { memo } from 'react'
+import { memo, useMemo } from 'react'
+import PropTypes from 'prop-types'
+import LoadingState from '../common/LoadingState'
+import ErrorState from '../common/ErrorState'
+import { usePersonalData } from '../../hooks/usePublicData'
 import './About.css'
-
-// Personal information - optimized data structure
-const PERSONAL_INFO = {
-  name: 'Mayur Khairnar',
-  email: 'mayurkhairnar09@gmail.com',
-  location: 'Pune, Maharashtra, India',
-  status: 'Available for opportunities'
-}
-
-const STATS = [
-  { id: 'experience', value: '4+', label: 'Years Experience' },
-  { id: 'performance', value: '25%', label: 'Performance Boost' },
-  { id: 'deployment', value: '90%+', label: 'Deployment Success' },
-  { id: 'certification', value: 'Azure', label: 'Certified' }
-]
 
 // Memoized components for better performance
 const InfoItem = memo(({ label, value }) => (
@@ -25,6 +14,10 @@ const InfoItem = memo(({ label, value }) => (
 ))
 
 InfoItem.displayName = 'InfoItem'
+InfoItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired
+}
 
 const StatCard = memo(({ stat }) => (
   <div className="stat-card">
@@ -34,40 +27,62 @@ const StatCard = memo(({ stat }) => (
 ))
 
 StatCard.displayName = 'StatCard'
+StatCard.propTypes = {
+  stat: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired
+  }).isRequired
+}
 
 const About = () => {
+  const { data, loading, error, refetch } = usePersonalData()
+  const personalInfo = useMemo(() => data || {}, [data])
+  const { name = '', email = '', location = '', status = '', bio = {}, stats = [] } = personalInfo
+
+  if (loading) {
+    return (
+      <section id="about" className="section about">
+        <div className="container">
+          <h2 className="section-title">About Me</h2>
+          <LoadingState message="Loading about information..." />
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section id="about" className="section about">
+        <div className="container">
+          <h2 className="section-title">About Me</h2>
+          <ErrorState
+            message="Unable to load about information."
+            onRetry={refetch}
+          />
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section id="about" className="section about">
       <div className="container">
         <h2 className="section-title">About Me</h2>
         <div className="about-content">
           <div className="about-text">
-            <p>
-              I'm a Full-Stack Software Engineer with 4+ years of experience building scalable, 
-              high-performance, and user-centric web applications using React.js, Node.js, and 
-              Microsoft Azure. I thrive in fast-paced, collaborative environments where I can solve 
-              complex problems and write clean, scalable code.
-            </p>
-            <p>
-              Currently working at Cyncly in Pune, Maharashtra, India, I've delivered impactful results: 
-              improved frontend performance by 25% through optimized React.js components and lazy loading, 
-              reduced backend latency by 20% with clean Node.js APIs and microservices, achieved 90%+ 
-              deployment success with CI/CD pipelines, and cut post-release defects by 25% through rigorous testing.
-            </p>
-            <p>
-              I'm passionate about building meaningful products and growing into a technical leadership role. 
-              Microsoft Azure Certified (AZ-900), I've also secured 3rd place at multiple Hackathon competitions, 
-              demonstrating my ability to innovate under pressure and deliver results.
-            </p>
+            {bio.intro && <p>{bio.intro}</p>}
+            {bio.current && <p>{bio.current}</p>}
+            {bio.passion && <p>{bio.passion}</p>}
             <div className="about-info">
-              <InfoItem label="Name" value={PERSONAL_INFO.name} />
-              <InfoItem label="Email" value={PERSONAL_INFO.email} />
-              <InfoItem label="Location" value={PERSONAL_INFO.location} />
-              <InfoItem label="Status" value={PERSONAL_INFO.status} />
+              <InfoItem label="Name" value={name} />
+              <InfoItem label="Email" value={email} />
+              <InfoItem label="Location" value={location} />
+              <InfoItem label="Status" value={status} />
             </div>
           </div>
           <div className="about-stats">
-            {STATS.map((stat) => (
+            {stats.map((stat) => (
               <StatCard key={stat.id} stat={stat} />
             ))}
           </div>

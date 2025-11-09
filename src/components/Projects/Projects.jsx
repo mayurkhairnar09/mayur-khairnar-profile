@@ -1,57 +1,15 @@
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
-import { memo, useCallback } from 'react'
+import { memo, useCallback, useMemo } from 'react'
+import PropTypes from 'prop-types'
+import LoadingState from '../common/LoadingState'
+import ErrorState from '../common/ErrorState'
+import { useProjectsData } from '../../hooks/usePublicData'
 import './Projects.css'
-
-// Optimized data structure
-const PROJECTS_DATA = [
-    {
-        id: 'spaces-flex',
-        title: 'Spaces Flex (IS7)',
-        description: 'Enterprise-grade microservices-based web application for interior design at Cyncly. Delivered tailored solutions for 40+ clients with dynamic UI features and interactive 2D/3D room layout tools for real-time visualization. Professional-grade planning application for kitchen, bathroom, offices and interior design using modern cloud architecture.',
-        technologies: ['React.js', 'TypeScript', 'Redux', 'Node.js', 'C#', '.NET Core', 'MongoDB', 'Azure Cloud', 'Microservices', 'RESTful APIs', 'Material UI', 'Azure AD', 'OAuth 2.0'],
-        image: 'https://launcher.cyncly-idealspaces.net/sfx_logo.png',
-        github: null, // Private repository
-        live: 'https://planner.cyncly-idealspaces.com/us/design/new?partnership=isdemositena',
-        demoLink: 'https://www.cyncly.com/en/product-overviews/spaces-flex',
-        clients: ['ADEO', 'MITRE10', 'FACQ', 'AUBDADE', 'ENVIA', 'CTA', 'CCAG', 'DIVIAN', 'XXL', 'ROCA', 'LAUFEN', 'KABOODLE', 'TKD', 'MONOSERRA'],
-        features: [
-            'Microservices architecture for scalability',
-            'Full-stack development with React, TypeScript, Node.js, .NET Core, C#',
-            'MongoDB database for flexible data management',
-            'Azure Cloud infrastructure and deployment',
-            'Interactive 2D/3D room layout tools',
-            'RESTful API integration across services',
-            'Real-time previews for lead conversions',
-            'Performance optimization with lazy loading',
-            'Secure authentication with Azure AD, KeyCloak, OAuth 2.0, Azure B2C'
-        ]
-    },
-    {
-        id: 'ideal-spaces',
-        title: 'Ideal Spaces 6 (IS6)',
-        description: 'Developed responsive web application for desktop, tablet, and mobile at Twenty Twenty Interior Design Software. Used by major enterprise clients worldwide including IKEA, LMFR, ROCA, NOBIA, HOMEBASE, REFORM, EGGO, WELDOM, DISCAC, and KABOODLE. Improved mobile usability and engagement by 20%.',
-        technologies: ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'Bootstrap', 'Responsive Design'],
-        image: 'https://www.2020spaces.com/wp-content/uploads/2022/09/Logo_2020_Transition_Stacked_FullColor_300dpi-1.jpg',
-        github: null, // Private repository
-        live: 'https://idealspaces-demometric-prod.2020-platform.com/index.html',
-        demoLink: 'https://www.2020spaces.com/',
-        clients: ['IKEA', 'LMFR', 'ROCA', 'SGDBF', 'ROXOR', 'NOBIA', 'HOMEBASE', 'REFORM', 'EGGO', 'WELDOM', 'DISCAC', 'KABOODLE'],
-        features: [
-            'Responsive design for desktop, tablet, and mobile',
-            'Reusable components increasing mobile engagement by 20%',
-            'Cross-browser compatibility and UI consistency',
-            'Reduced page load times',
-            'Collaborated with QA for bug fixes',
-            'Enterprise-grade solution for major global brands'
-        ]
-    }
-]
 
 // Memoized project card component
 const ProjectCard = memo(({ project }) => {
-    // Lazy load images
-    const handleImageLoad = useCallback((e) => {
-        e.target.classList.add('loaded')
+    const handleImageError = useCallback((e) => {
+        e.target.src = '/placeholder-project.png'
     }, [])
 
     return (
@@ -61,7 +19,7 @@ const ProjectCard = memo(({ project }) => {
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    onLoad={handleImageLoad}
+                    onError={handleImageError}
                 />
                 <div className="project-overlay">
                     <div className="project-links">
@@ -93,7 +51,7 @@ const ProjectCard = memo(({ project }) => {
             <div className="project-content">
                 <h3>{project.title}</h3>
                 <p className="project-description">{project.description}</p>
-                {project.clients && project.clients.length > 0 && (
+                {project.clients?.length > 0 && (
                     <div className="project-clients">
                         <strong>Enterprise Clients:</strong>
                         <div className="client-tags">
@@ -114,14 +72,54 @@ const ProjectCard = memo(({ project }) => {
 })
 
 ProjectCard.displayName = 'ProjectCard'
+ProjectCard.propTypes = {
+    project: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+        github: PropTypes.string,
+        live: PropTypes.string,
+        clients: PropTypes.arrayOf(PropTypes.string)
+    }).isRequired
+}
 
 const Projects = () => {
+    const { data, loading, error, refetch } = useProjectsData()
+    const projects = useMemo(() => data?.projects || [], [data])
+
+    if (loading) {
+        return (
+            <section id="projects" className="section projects">
+                <div className="container">
+                    <h2 className="section-title">Projects</h2>
+                    <LoadingState message="Loading projects..." />
+                </div>
+            </section>
+        )
+    }
+
+    if (error || projects.length === 0) {
+        return (
+            <section id="projects" className="section projects">
+                <div className="container">
+                    <h2 className="section-title">Projects</h2>
+                    <ErrorState 
+                        message="Unable to load projects data." 
+                        onRetry={refetch}
+                    />
+                </div>
+            </section>
+        )
+    }
+
     return (
         <section id="projects" className="section projects">
             <div className="container">
                 <h2 className="section-title">Projects</h2>
                 <div className="projects-grid">
-                    {PROJECTS_DATA.map((project) => (
+                    {projects.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>

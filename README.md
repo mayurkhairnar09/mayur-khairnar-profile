@@ -1,97 +1,191 @@
-# 🚀 Mayur Khairnar - Portfolio Website
+# Mayur Khairnar - Portfolio Website# 🚀 Mayur Khairnar - Portfolio Website
 
-<div align="center">
 
-[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+
+A modern, responsive portfolio website built with React and Vite, showcasing my professional experience as a Full-Stack Software Engineer.<div align="center">
+
+
+
+## Overview[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+
 [![Vite](https://img.shields.io/badge/Vite-5.4.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+
+Full-Stack Software Engineer with 4+ years of experience specializing in React.js, Node.js, and Microsoft Azure. This portfolio demonstrates my technical skills, projects, and professional journey.[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+
 [![Azure](https://img.shields.io/badge/Azure-Certified-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://learn.microsoft.com/en-in/users/mayurkhairnar-6087/credentials/19164cac4fb66ec9)
 
-**A modern, performant, and fully responsive portfolio website showcasing 4+ years of full-stack development expertise**
+**Key Achievements:**
 
-[📧 Contact](mailto:mayurkhairnar09@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/mayur-khairnar-2a281a180)
+- 25% frontend performance improvement**A modern, performant, and fully responsive portfolio website showcasing 4+ years of full-stack development expertise**
+
+- 20% backend latency reduction
+
+- 90%+ deployment success rate[📧 Contact](mailto:mayurkhairnar09@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/mayur-khairnar-2a281a180)
+
+- Microsoft Azure Certified (AZ-900)
 
 </div>
 
+## Tech Stack
+
 ---
 
-## ✨ Overview
+- **Frontend:** React 18.3.1, Vite 5.4.2
 
-This is my personal portfolio website built with cutting-edge web technologies to showcase my professional journey as a **Full-Stack Software Engineer**. The site demonstrates my expertise in React.js, Node.js, Microsoft Azure, and modern web development practices.
+- **Styling:** CSS3 with modern features## ✨ Overview
 
-### 🎯 Key Highlights
+- **Icons:** React Icons 5.3.0
 
-- **4+ years** of professional software engineering experience
-- **25% frontend performance improvement** through optimized React.js components
-- **20% backend latency reduction** with clean Node.js APIs and microservices
+- **Tools:** Git, ESLint, npmThis is my personal portfolio website built with cutting-edge web technologies to showcase my professional journey as a **Full-Stack Software Engineer**. The site demonstrates my expertise in React.js, Node.js, Microsoft Azure, and modern web development practices.
+
+
+
+## Getting Started### 🎯 Key Highlights
+
+
+
+### Prerequisites- **4+ years** of professional software engineering experience
+
+- Node.js (v18 or higher)- **25% frontend performance improvement** through optimized React.js components
+
+- npm or yarn- **20% backend latency reduction** with clean Node.js APIs and microservices
+
 - **90%+ deployment success rate** with CI/CD pipelines and Azure integration
-- **Microsoft Azure Certified** (AZ-900)
+
+### Installation- **Microsoft Azure Certified** (AZ-900)
+
 - **2 Hackathon Awards** (3rd place finishes)
 
----
+```bash
 
-## 🛠️ Tech Stack
+# Clone the repository---
 
-### Frontend Technologies
-- **React 18.3.1** - UI library with hooks and functional components
+git clone https://github.com/mayurkhairnar09/mayur-khairnar-profile.git
+
+cd mayur-khairnar-profile## 🛠️ Tech Stack
+
+
+
+# Install dependencies### Frontend Technologies
+
+npm install- **React 18.3.1** - UI library with hooks and functional components
+
 - **Vite 5.4.2** - Lightning-fast build tool and dev server
-- **React Icons 5.3.0** - Comprehensive icon library
-- **CSS3** - Modern styling with CSS variables and animations
 
-### Development Tools
-- **Git & GitHub** - Version control and collaboration
+# Start development server- **React Icons 5.3.0** - Comprehensive icon library
+
+npm run dev- **CSS3** - Modern styling with CSS variables and animations
+
+
+
+# Open browser at http://localhost:5173### Development Tools
+
+```- **Git & GitHub** - Version control and collaboration
+
 - **ESLint** - Code quality and consistency
-- **npm** - Package management
 
----
+### Build- **npm** - Package management
 
-## 🎨 Features
 
-### ⚡ Performance Optimized
-- **React.memo()** - Memoized components prevent unnecessary re-renders
-- **useMemo() & useCallback()** - Optimized hooks for expensive operations
+
+```bash---
+
+# Build for production
+
+npm run build## 🎨 Features
+
+
+
+# Preview production build### ⚡ Performance Optimized
+
+npm run preview- **React.memo()** - Memoized components prevent unnecessary re-renders
+
+```- **useMemo() & useCallback()** - Optimized hooks for expensive operations
+
 - **Lazy Loading** - Images load on-demand for faster page load
-- **Code Splitting** - Efficient bundle optimization
+
+## Features- **Code Splitting** - Efficient bundle optimization
+
 - **Static Data Structures** - Data moved outside components for better performance
 
-### 🎭 Modern UI/UX
-- **Smooth Animations** - CSS3 keyframe animations and transitions
-- **Gradient Effects** - Modern gradient backgrounds and text effects
-- **Glassmorphism** - Frosted glass effects for modern aesthetics
+- **Responsive Design** - Mobile-first approach
+
+- **Performance Optimized** - React.memo, useMemo, useCallback### 🎭 Modern UI/UX
+
+- **Accessibility** - ARIA labels, semantic HTML- **Smooth Animations** - CSS3 keyframe animations and transitions
+
+- **Dark Mode** - Theme toggle support- **Gradient Effects** - Modern gradient backgrounds and text effects
+
+- **Smooth Animations** - CSS3 transitions- **Glassmorphism** - Frosted glass effects for modern aesthetics
+
 - **3D Transforms** - Interactive hover effects with scale and rotation
-- **Responsive Design** - Mobile-first approach with breakpoints
+
+## Project Structure- **Responsive Design** - Mobile-first approach with breakpoints
+
 - **Custom Scrollbar** - Themed scrollbar for better UX
 
-### ♿ Accessibility
-- **ARIA Labels** - Screen reader support
-- **Semantic HTML** - Proper HTML5 structure
-- **Keyboard Navigation** - Full keyboard accessibility
-- **Focus States** - Clear visual focus indicators
-- **Role Attributes** - Proper ARIA roles for components
-
-### 📱 Fully Responsive
-- **Mobile-First Design** - Optimized for mobile devices
-- **Tablet Support** - Perfect layout for tablets
-- **Desktop Optimized** - Full-featured desktop experience
-- **Flexible Grid** - CSS Grid and Flexbox for layouts
-
----
-
-## 📂 Project Structure
-
 ```
+
+src/### ♿ Accessibility
+
+├── components/- **ARIA Labels** - Screen reader support
+
+│   ├── Header/- **Semantic HTML** - Proper HTML5 structure
+
+│   ├── Hero/- **Keyboard Navigation** - Full keyboard accessibility
+
+│   ├── About/- **Focus States** - Clear visual focus indicators
+
+│   ├── Skills/- **Role Attributes** - Proper ARIA roles for components
+
+│   ├── Experience/
+
+│   ├── Projects/### 📱 Fully Responsive
+
+│   ├── Education/- **Mobile-First Design** - Optimized for mobile devices
+
+│   ├── Contact/- **Tablet Support** - Perfect layout for tablets
+
+│   └── Footer/- **Desktop Optimized** - Full-featured desktop experience
+
+├── hooks/- **Flexible Grid** - CSS Grid and Flexbox for layouts
+
+├── utils/
+
+├── App.jsx---
+
+└── main.jsx
+
+```## 📂 Project Structure
+
+
+
+## Contact```
+
 mayur-khairnar-profile/
-├── public/
-│   └── vite.svg
-├── src/
+
+- **Email:** mayurkhairnar09@gmail.com├── public/
+
+- **LinkedIn:** [Mayur Khairnar](https://www.linkedin.com/in/mayur-khairnar-2a281a180)│   └── vite.svg
+
+- **GitHub:** [mayurkhairnar09](https://github.com/mayurkhairnar09)├── src/
+
 │   ├── components/
-│   │   ├── Header/
+
+## License│   │   ├── Header/
+
 │   │   │   ├── Header.jsx
-│   │   │   └── Header.css
+
+This project is licensed under the MIT License.│   │   │   └── Header.css
+
 │   │   ├── Hero/
-│   │   │   ├── Hero.jsx
+
+---│   │   │   ├── Hero.jsx
+
 │   │   │   └── Hero.css
-│   │   ├── About/
+
+Made with ❤️ by Mayur Khairnar│   │   ├── About/
+
 │   │   │   ├── About.jsx
 │   │   │   └── About.css
 │   │   ├── Skills/

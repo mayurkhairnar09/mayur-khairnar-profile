@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { FaMoon, FaSun, FaDesktop } from 'react-icons/fa'
 import './ThemeToggle.css'
 
 const ThemeToggle = ({ theme, onThemeChange }) => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef(null)
 
   useEffect(() => {

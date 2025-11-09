@@ -1,15 +1,14 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import './Button.css'
 
-const Button = ({ 
-  children, 
-  variant = 'primary', 
-  href, 
-  onClick, 
+const Button = ({
+  children,
+  variant = 'primary',
+  href,
+  onClick,
   type = 'button',
   icon,
-  ...props 
+  ...props
 }) => {
   const className = `btn btn-${variant}`
 
