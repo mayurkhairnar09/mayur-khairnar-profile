@@ -57,7 +57,6 @@ const Contact = () => {
     
     // Simulate form submission (replace with actual API call)
     setTimeout(() => {
-      console.log('Form submitted:', formData)
       setStatus('Message sent successfully!')
       setIsSubmitting(false)
       
