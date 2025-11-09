@@ -24,6 +24,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 20px;
+  position: relative;
+}
+
+.nav-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-brand a {
@@ -31,6 +38,7 @@
   font-weight: 700;
   color: var(--primary-color);
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-brand a:hover {
@@ -171,6 +179,15 @@
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--text-primary);
+  z-index: 1001;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle:hover {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
 }
 
 .nav-backdrop {
@@ -207,7 +224,9 @@
   }
 
   .nav-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .theme-toggle {
@@ -249,34 +268,55 @@
   .nav-menu {
     position: fixed;
     top: 70px;
-    right: -100%;
-    width: 70%;
-    max-width: 350px;
+    left: -100%;
+    width: 280px;
+    max-width: 85vw;
     height: calc(100vh - 70px);
+    max-height: calc(100vh - 70px);
     background: var(--bg-primary);
     flex-direction: column;
     align-items: flex-start;
-    padding: 2rem;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
+    padding: 1.5rem 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
     overflow-y: auto;
+    overflow-x: hidden;
     gap: 0;
+    z-index: 999;
   }
 
   .dark-mode .nav-menu {
     background: rgba(15, 23, 42, 0.98);
-    box-shadow: -2px 0 20px rgba(0, 0, 0, 0.5);
-    border-left: 1px solid var(--border-color);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+    border-right: 1px solid var(--border-color);
   }
 
   .nav-menu.active {
-    right: 0;
+    left: 0;
+  }
+
+  /* Custom scrollbar for mobile menu */
+  .nav-menu::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .nav-menu::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .nav-menu::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+  }
+
+  .nav-menu::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
   }
 
   .nav-item {
     width: 100%;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .nav-item:last-child {
@@ -284,11 +324,28 @@
   }
 
   .nav-link {
-    font-size: 1.1rem;
-    padding: 0.75rem 1rem;
-    display: block;
-    border-radius: 8px;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0;
     transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .nav-label {
+    flex: 1;
   }
 
   .nav-link::after {
@@ -297,7 +354,12 @@
 
   .nav-link:hover {
     background: rgba(37, 99, 235, 0.1);
-    padding-left: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .nav-link:hover .nav-icon {
+    color: var(--secondary-color);
+    transform: scale(1.1);
   }
 
   .dark-mode .nav-link:hover {
@@ -312,7 +374,7 @@
   }
 
   .nav-brand a {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .theme-toggle {
@@ -321,25 +383,30 @@
   }
 
   .nav-menu {
-    width: 75%;
-    max-width: 320px;
-    padding: 1.75rem;
+    width: 260px;
+    max-width: 80vw;
+    padding: 1.25rem 0;
   }
 
   .nav-link {
-    font-size: 1.05rem;
-    padding: 0.7rem 0.9rem;
+    font-size: 0.975rem;
+    padding: 0.9rem 1.25rem;
+    gap: 0.875rem;
+  }
+
+  .nav-icon {
+    font-size: 1.15rem;
   }
 }
 
 /* Small Mobile (320px - 480px) */
 @media (max-width: 480px) {
   .nav {
-    padding: 0.8rem 12px;
+    padding: 0.8rem 10px;
   }
 
   .nav-brand a {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .theme-toggle {
@@ -363,11 +430,11 @@
   }
 
   .nav-menu {
-    width: 80%;
-    max-width: 280px;
-    padding: 1.5rem;
+    width: 240px;
+    max-width: 75vw;
     top: 65px;
     height: calc(100vh - 65px);
+    padding: 1rem 0;
   }
 
   .nav-backdrop {
@@ -376,15 +443,21 @@
   }
 
   .nav-item {
-    padding: 0.4rem 0;
+    padding: 0;
   }
 
   .nav-link {
-    font-size: 1rem;
-    padding: 0.65rem 0.85rem;
+    font-size: 0.925rem;
+    padding: 0.85rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .nav-icon {
+    font-size: 1.1rem;
+    min-width: 22px;
   }
 
   .nav-link:hover {
-    padding-left: 1.35rem;
+    padding-left: 1.5rem;
   }
 }

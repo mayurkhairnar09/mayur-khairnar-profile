@@ -1,16 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaBars, FaTimes, FaHome, FaUser, FaCode, FaBriefcase, FaGraduationCap, FaProjectDiagram, FaEnvelope } from 'react-icons/fa'
 import './MobileMenu.css'
 
 const MobileMenu = ({ isOpen, onToggle, navItems, onNavClick }) => {
+  const iconMap = {
+    'Home': <FaHome />,
+    'About': <FaUser />,
+    'Skills': <FaCode />,
+    'Experience': <FaBriefcase />,
+    'Education': <FaGraduationCap />,
+    'Projects': <FaProjectDiagram />,
+    'Contact': <FaEnvelope />,
+  }
+
   return (
     <>
+      <div className="nav-toggle" onClick={onToggle}>
+        {isOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
       <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
         {navItems.map((item) => (
           <li key={item.name} className="nav-item">
             <a href={item.href} className="nav-link" onClick={onNavClick}>
-              {item.name}
+              <span className="nav-icon">{iconMap[item.name]}</span>
+              <span className="nav-label">{item.name}</span>
             </a>
           </li>
         ))}
@@ -22,10 +37,6 @@ const MobileMenu = ({ isOpen, onToggle, navItems, onNavClick }) => {
           onClick={onToggle}
         />
       )}
-
-      <div className="nav-toggle" onClick={onToggle}>
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </div>
     </>
   )
 }

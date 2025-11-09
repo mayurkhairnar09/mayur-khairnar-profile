@@ -71,16 +71,16 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="container nav">
-        <div className="nav-brand">
-          <a href="#hero">Mayur Khairnar</a>
-        </div>
-        
         <MobileMenu 
           isOpen={isMobileMenuOpen}
           onToggle={toggleMobileMenu}
           navItems={navItems}
           onNavClick={handleNavClick}
         />
+
+        <div className="nav-brand">
+          <a href="#hero">Mayur Khairnar</a>
+        </div>
 
         <div className="nav-actions">
           <ThemeToggle theme={theme} onThemeChange={setTheme} />
