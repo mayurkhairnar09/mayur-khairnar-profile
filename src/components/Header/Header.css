@@ -466,6 +466,7 @@
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     border: none !important;
+    color: var(--text-primary) !important;
   }
 
   .mobile-nav-link .nav-label::before {
@@ -494,6 +495,15 @@
 
   .dark-mode .mobile-nav-link:hover {
     background: transparent !important;
+  }
+
+  /* Enable active/tap state for mobile menu items */
+  .mobile-nav-link:active {
+    background: rgba(37, 99, 235, 0.1) !important;
+  }
+
+  .dark-mode .mobile-nav-link:active {
+    background: rgba(96, 165, 250, 0.1) !important;
   }
 }
 

@@ -27,7 +27,17 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
+/* Active state for touch devices */
+.project-card:active {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
 .dark-mode .project-card:hover {
+  box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+}
+
+.dark-mode .project-card:active {
   box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
 }
 
@@ -49,6 +59,10 @@
   transform: scale(1.1);
 }
 
+.project-card:active .project-image img {
+  transform: scale(1.1);
+}
+
 .project-overlay {
   position: absolute;
   top: 0;
@@ -64,6 +78,10 @@
 }
 
 .project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-card:active .project-overlay {
   opacity: 1;
 }
 
@@ -85,6 +103,12 @@
 }
 
 .project-link:hover {
+  background: var(--text-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.project-link:active {
   background: var(--text-primary);
   color: white;
   transform: translateY(-2px);

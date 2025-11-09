@@ -30,35 +30,40 @@
       "icon": "FaGithub",
       "href": "https://github.com/mayurkhairnar09",
       "label": "GitHub",
-      "ariaLabel": "GitHub Profile"
+      "ariaLabel": "GitHub Profile",
+      "color": "#181717"
     },
     {
       "id": "linkedin",
       "icon": "FaLinkedin",
       "href": "https://www.linkedin.com/in/mayur-khairnar-2a281a180",
       "label": "LinkedIn",
-      "ariaLabel": "LinkedIn Profile"
+      "ariaLabel": "LinkedIn Profile",
+      "color": "#0A66C2"
     },
     {
       "id": "instagram",
       "icon": "FaInstagram",
       "href": "https://www.instagram.com/x___mr.classy___x",
       "label": "Instagram",
-      "ariaLabel": "Instagram Profile"
+      "ariaLabel": "Instagram Profile",
+      "color": "#E4405F"
     },
     {
       "id": "facebook",
       "icon": "FaFacebook",
       "href": "https://www.facebook.com/mayur.r.khairnar",
       "label": "Facebook",
-      "ariaLabel": "Facebook Profile"
+      "ariaLabel": "Facebook Profile",
+      "color": "#1877F2"
     },
     {
       "id": "email",
       "icon": "FaEnvelope",
       "href": "mailto:mayurkhairnar09@gmail.com",
       "label": "Email",
-      "ariaLabel": "Send Email"
+      "ariaLabel": "Send Email",
+      "color": "#EA4335"
     }
   ],
   

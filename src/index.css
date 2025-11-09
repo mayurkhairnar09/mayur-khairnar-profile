@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+/* Enable hover effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 :root {
   --primary-color: #2563eb;
   --secondary-color: #1e40af;
@@ -240,6 +247,12 @@ img {
   box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
 }
 
+/* Active state for touch devices */
+.btn-primary:active {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
 .btn-secondary {
   background: transparent;
   color: var(--primary-color);
@@ -247,6 +260,14 @@ img {
 }
 
 .btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Active state for touch devices */
+.btn-secondary:active {
   background: var(--primary-color);
   color: white;
   transform: translateY(-3px);

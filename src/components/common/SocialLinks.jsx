@@ -42,6 +42,8 @@ const SocialLinks = ({ className = '', showLabels = false }) => {
             target={social.id !== 'email' ? '_blank' : undefined}
             rel={social.id !== 'email' ? 'noopener noreferrer' : undefined}
             aria-label={social.ariaLabel}
+            style={{ '--social-color': social.color }}
+            className="social-link"
           >
             <Icon />
             {showLabels && <span className="social-label">{social.label}</span>}

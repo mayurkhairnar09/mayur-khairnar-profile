@@ -101,13 +101,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="hero-scroll">
-        <a href="#about" className="scroll-down" aria-label="Scroll to About section">
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-      </div>
     </section>
   )
 }

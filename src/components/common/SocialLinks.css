@@ -18,26 +18,58 @@
   width: 45px;
   height: 45px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(37, 99, 235, 0.1);
   border-radius: 50%;
-  color: white;
+  color: var(--primary-color);
   font-size: 1.25rem;
   transition: all 0.3s ease;
 }
 
+/* Colorful icon on hover - works in both light and dark mode */
 .social-links a:hover svg {
-  background: var(--primary-color);
+  background: var(--social-color, var(--primary-color));
+  color: white !important;
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Active state for touch devices */
+.social-links a:active svg {
+  background: var(--social-color, var(--primary-color));
+  color: white !important;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .social-label {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .social-links a:hover .social-label {
   color: var(--accent-color);
+}
+
+.social-links a:active .social-label {
+  color: var(--accent-color);
+}
+
+/* Dark mode specific adjustments */
+.dark-mode .social-links a svg {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .social-links a:hover svg {
+  background: var(--social-color, var(--primary-color)) !important;
+  color: white !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .social-links a:active svg {
+  background: var(--social-color, var(--primary-color)) !important;
+  color: white !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
