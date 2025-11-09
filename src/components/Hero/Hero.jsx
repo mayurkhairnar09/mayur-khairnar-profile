@@ -10,9 +10,9 @@ const Hero = () => {
           <h1 className="hero-name">Mayur Khairnar</h1>
           <h2 className="hero-title">Full-Stack Software Engineer</h2>
           <p className="hero-description">
-            Based in Pune, Maharashtra, India. Full-stack Software Engineer with 3+ years of experience 
-            in React.js, JavaScript, Redux, Node.js, and Web APIs. Proven expertise in RESTful API integration, 
-            Microsoft Azure, Agile development, and performance optimization. Microsoft Azure Certified.
+            Based in Pune, Maharashtra, India. Full-stack Software Engineer with 4+ years of experience 
+            building scalable, high-performance web applications using React.js, Node.js, and Microsoft Azure. 
+            Improved frontend performance by 25% and reduced backend latency by 20%. Microsoft Azure Certified.
           </p>
           <div className="hero-buttons">
             <a href="#contact" className="btn btn-primary">

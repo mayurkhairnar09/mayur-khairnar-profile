@@ -7,19 +7,33 @@ const Experience = () => {
       title: 'Software Engineer',
       company: 'Cyncly',
       location: 'Pune, Maharashtra',
-      period: 'Dec 2021 - Present',
+      period: 'Sep 2022 - Present',
       description: [
-        'Delivered scalable UI features using React.js, Redux, and Material UI for a product used by 40+ clients, enhancing user satisfaction',
-        'Reduced backend response time by 20% by developing optimized RESTful APIs using Node.js',
-        'Achieved a 90% deployment success rate by managing Azure deployments and integrating Blob Storage',
-        'Lowered post-release defects by conducting thorough API testing and validation with Postman',
-        'Performed presales estimations for web applications, supporting accurate scoping and cost estimation that led to a 30% increase in proposal win rate',
-        'Provide 24/7 production support: incident detection, triage, root-cause analysis, and rapid remediation of high-severity issues to minimize downtime',
+        'Developed and maintained backend services using Node.js and Azure Functions, integrating third-party client systems with internal web applications',
+        'Improved frontend performance by 25% through optimized React.js components and lazy loading strategies',
+        'Reduced backend latency by 20% with clean, modular Node.js APIs and microservices architecture',
+        'Implemented secure authentication flows using Azure AD B2C, enabling SSO and multi-tenant access control',
+        'Achieved 90%+ deployment success by managing CI/CD pipelines (YAML) and integrating Azure Blob Storage',
+        'Cut post-release defects by 25% through rigorous testing, API validation with Postman, and proactive monitoring',
+        'Contributed to presales effort estimations for new client requirements, supporting accurate scoping',
+        'Provide 24/7 production support ensuring system reliability and quick issue resolution',
       ]
     },
     {
-      title: 'Software Engineer Intern',
-      company: 'Twenty Twenty Interior Design Software Pvt Ltd',
+      title: 'Software Engineer',
+      company: 'Cyncly (2020)',
+      location: 'Pune, Maharashtra',
+      period: 'Jun 2022 - Sep 2022',
+      description: [
+        'Delivered scalable UI features using React.js, Redux, and Material UI for a product used by 40+ clients',
+        'Designed and optimized RESTful APIs and middleware for data transformation, validation, and secure communication',
+        'Collaborated with frontend teams to define API contracts and ensure seamless integration with React.js UIs',
+        'Focused on performance tuning, error handling, and logging using Winston and Application Insights',
+      ]
+    },
+    {
+      title: 'Software Developer Intern',
+      company: 'Twenty Twenty Interior Design Software Pvt Ltd (2020)',
       location: 'Pune, Maharashtra',
       period: 'Dec 2021 - May 2022',
       description: [

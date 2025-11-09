@@ -8,22 +8,21 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p>
-              I'm a Full-Stack Software Engineer with 3+ years of experience specializing in 
-              React.js, JavaScript, Redux, Node.js, and Web APIs. I excel at building modern, 
-              scalable web applications with a focus on performance optimization and exceptional 
-              user experiences.
+              I'm a Full-Stack Software Engineer with 4+ years of experience building scalable, 
+              high-performance, and user-centric web applications using React.js, Node.js, and 
+              Microsoft Azure. I thrive in fast-paced, collaborative environments where I can solve 
+              complex problems and write clean, scalable code.
             </p>
             <p>
-              Currently working at Cyncly in Pune, Maharashtra, India, I've delivered scalable 
-              UI features for 40+ clients and reduced backend response times by 20% through 
-              optimized RESTful APIs. My expertise extends to Microsoft Azure cloud services, 
-              CI/CD pipelines, and Agile development methodologies.
+              Currently working at Cyncly in Pune, Maharashtra, India, I've delivered impactful results: 
+              improved frontend performance by 25% through optimized React.js components and lazy loading, 
+              reduced backend latency by 20% with clean Node.js APIs and microservices, achieved 90%+ 
+              deployment success with CI/CD pipelines, and cut post-release defects by 25% through rigorous testing.
             </p>
             <p>
-              I'm passionate about leveraging cutting-edge technologies to solve complex problems, 
-              and I'm Microsoft Azure Certified (AZ-900). I've also achieved recognition with 3rd 
-              place finishes at Hackathon competitions, demonstrating my ability to innovate under 
-              pressure.
+              I'm passionate about building meaningful products and growing into a technical leadership role. 
+              Microsoft Azure Certified (AZ-900), I've also secured 3rd place at multiple Hackathon competitions, 
+              demonstrating my ability to innovate under pressure and deliver results.
             </p>
             <div className="about-info">
               <div className="info-item">
@@ -46,16 +45,16 @@ const About = () => {
           </div>
           <div className="about-stats">
             <div className="stat-card">
-              <h3>3+</h3>
+              <h3>4+</h3>
               <p>Years Experience</p>
             </div>
             <div className="stat-card">
-              <h3>40+</h3>
-              <p>Clients Served</p>
+              <h3>25%</h3>
+              <p>Performance Boost</p>
             </div>
             <div className="stat-card">
-              <h3>2</h3>
-              <p>Hackathon Awards</p>
+              <h3>90%+</h3>
+              <p>Deployment Success</p>
             </div>
             <div className="stat-card">
               <h3>Azure</h3>

@@ -4,10 +4,10 @@ import './Education.css'
 const Education = () => {
   const education = [
     {
-      degree: 'Bachelor of Engineering - Electrical',
-      institution: "SSBT's College of Engineering & Technology, Bambhori, Jalgaon",
+      degree: 'Bachelor of Engineering - Electrical Engineering',
+      institution: "SSBT's College of Engineering & Technology, Bambhori",
       location: 'Jalgaon, Maharashtra',
-      period: '2016 - 2020',
+      period: '2015 - 2020',
       gpa: '',
       achievements: [
         'Graduated in Electrical Engineering with strong foundation in technical problem-solving',
@@ -23,6 +23,30 @@ const Education = () => {
       issuer: 'Microsoft',
       year: '2024',
       link: 'https://learn.microsoft.com/en-in/users/mayurkhairnar-6087/credentials/19164cac4fb66ec9'
+    },
+    {
+      name: 'React.JS Developer',
+      issuer: 'LinkedIn Learning',
+      year: '2024',
+      link: ''
+    },
+    {
+      name: 'Learning React.js',
+      issuer: 'LinkedIn Learning',
+      year: '2024',
+      link: ''
+    },
+    {
+      name: 'Learning ECMAScript 6+ (ES6+)',
+      issuer: 'LinkedIn Learning',
+      year: '2024',
+      link: ''
+    },
+    {
+      name: 'Copilot in Outlook: Maximize Your Workday Efficiency',
+      issuer: 'Microsoft',
+      year: '2024',
+      link: ''
     }
   ]
 

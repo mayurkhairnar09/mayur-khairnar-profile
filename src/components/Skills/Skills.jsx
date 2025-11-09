@@ -25,7 +25,8 @@ const Skills = () => {
         { name: 'Node.js', icon: <FaNode />, level: 92 },
         { name: 'Express.js', icon: <SiExpress />, level: 90 },
         { name: 'RESTful APIs', icon: <FaDatabase />, level: 95 },
-        { name: 'GraphQL', icon: <SiGraphql />, level: 85 },
+        { name: 'Microservices', icon: <FaNode />, level: 88 },
+        { name: 'Azure Functions', icon: <SiMicrosoftazure />, level: 90 },
       ]
     },
     {
