@@ -1,5 +1,5 @@
 import { FaReact, FaNode, FaDatabase, FaHtml5, FaCss3Alt, FaJs, FaGitAlt } from 'react-icons/fa'
-import { SiMongodb, SiExpress, SiMicrosoftsqlserver, SiPostgresql, SiDocker, SiTypescript, SiRedux, SiNextdotjs, SiMaterialui, SiMicrosoftazure } from 'react-icons/si'
+import { SiMongodb, SiExpress, SiMicrosoftsqlserver, SiPostgresql, SiDocker, SiTypescript, SiRedux, SiNextdotjs, SiMui, SiMicrosoftazure } from 'react-icons/si'
 import { memo, useMemo } from 'react'
 import './Skills.css'
 
@@ -16,7 +16,7 @@ const SKILL_CATEGORIES = [
       { id: 'nextjs', name: 'Next.js', icon: SiNextdotjs },
       { id: 'html5', name: 'HTML5', icon: FaHtml5 },
       { id: 'css3', name: 'CSS3', icon: FaCss3Alt },
-      { id: 'materialui', name: 'Material UI', icon: SiMaterialui },
+      { id: 'materialui', name: 'Material UI', icon: SiMui },
     ]
   },
   {
