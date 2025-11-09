@@ -1,5 +1,5 @@
 import { FaReact, FaNode, FaDatabase, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaCloud } from 'react-icons/fa'
-import { SiMongodb, SiExpress, SiMicrosoftsqlserver, SiPostgresql, SiDocker, SiTypescript, SiRedux, SiNextdotjs, SiMui } from 'react-icons/si'
+import { SiMongodb, SiExpress, SiPostgresql, SiDocker, SiTypescript, SiRedux, SiNextdotjs, SiMui } from 'react-icons/si'
 import { memo, useMemo } from 'react'
 import './Skills.css'
 
@@ -35,7 +35,7 @@ const SKILL_CATEGORIES = [
     category: 'Database & Cloud',
     skills: [
       { id: 'mongodb', name: 'MongoDB', icon: SiMongodb },
-      { id: 'sqlserver', name: 'SQL Server', icon: SiMicrosoftsqlserver },
+      { id: 'sqlserver', name: 'SQL Server', icon: FaDatabase },
       { id: 'postgresql', name: 'PostgreSQL', icon: SiPostgresql },
       { id: 'azure', name: 'Azure Cloud', icon: FaCloud },
     ]
