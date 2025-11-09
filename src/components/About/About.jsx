@@ -1,4 +1,39 @@
+import { memo } from 'react'
 import './About.css'
+
+// Personal information - optimized data structure
+const PERSONAL_INFO = {
+  name: 'Mayur Khairnar',
+  email: 'mayurkhairnar09@gmail.com',
+  location: 'Pune, Maharashtra, India',
+  status: 'Available for opportunities'
+}
+
+const STATS = [
+  { id: 'experience', value: '4+', label: 'Years Experience' },
+  { id: 'performance', value: '25%', label: 'Performance Boost' },
+  { id: 'deployment', value: '90%+', label: 'Deployment Success' },
+  { id: 'certification', value: 'Azure', label: 'Certified' }
+]
+
+// Memoized components for better performance
+const InfoItem = memo(({ label, value }) => (
+  <div className="info-item">
+    <span className="info-label">{label}:</span>
+    <span className="info-value">{value}</span>
+  </div>
+))
+
+InfoItem.displayName = 'InfoItem'
+
+const StatCard = memo(({ stat }) => (
+  <div className="stat-card">
+    <h3>{stat.value}</h3>
+    <p>{stat.label}</p>
+  </div>
+))
+
+StatCard.displayName = 'StatCard'
 
 const About = () => {
   return (
@@ -25,41 +60,16 @@ const About = () => {
               demonstrating my ability to innovate under pressure and deliver results.
             </p>
             <div className="about-info">
-              <div className="info-item">
-                <span className="info-label">Name:</span>
-                <span className="info-value">Mayur Khairnar</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label">Email:</span>
-                <span className="info-value">mayurkhairnar09@gmail.com</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label">Location:</span>
-                <span className="info-value">Pune, Maharashtra, India</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label">Status:</span>
-                <span className="info-value">Available for opportunities</span>
-              </div>
+              <InfoItem label="Name" value={PERSONAL_INFO.name} />
+              <InfoItem label="Email" value={PERSONAL_INFO.email} />
+              <InfoItem label="Location" value={PERSONAL_INFO.location} />
+              <InfoItem label="Status" value={PERSONAL_INFO.status} />
             </div>
           </div>
           <div className="about-stats">
-            <div className="stat-card">
-              <h3>4+</h3>
-              <p>Years Experience</p>
-            </div>
-            <div className="stat-card">
-              <h3>25%</h3>
-              <p>Performance Boost</p>
-            </div>
-            <div className="stat-card">
-              <h3>90%+</h3>
-              <p>Deployment Success</p>
-            </div>
-            <div className="stat-card">
-              <h3>Azure</h3>
-              <p>Certified</p>
-            </div>
+            {STATS.map((stat) => (
+              <StatCard key={stat.id} stat={stat} />
+            ))}
           </div>
         </div>
       </div>

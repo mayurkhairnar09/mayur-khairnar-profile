@@ -1,78 +1,93 @@
 import { FaBriefcase } from 'react-icons/fa'
+import { memo, useMemo } from 'react'
 import './Experience.css'
 
+// Optimized data structure - moved outside component to prevent recreation
+const EXPERIENCES_DATA = [
+  {
+    id: 'cyncly-senior',
+    title: 'Software Engineer',
+    company: 'Cyncly',
+    location: 'Pune, Maharashtra',
+    period: 'Sep 2022 - Present',
+    description: [
+      'Developed and maintained backend services using Node.js and Azure Functions, integrating third-party client systems with internal web applications',
+      'Improved frontend performance by 25% through optimized React.js components and lazy loading strategies',
+      'Reduced backend latency by 20% with clean, modular Node.js APIs and microservices architecture',
+      'Implemented secure authentication flows using Azure AD B2C, enabling SSO and multi-tenant access control',
+      'Achieved 90%+ deployment success by managing CI/CD pipelines (YAML) and integrating Azure Blob Storage',
+      'Cut post-release defects by 25% through rigorous testing, API validation with Postman, and proactive monitoring',
+      'Contributed to presales effort estimations for new client requirements, supporting accurate scoping',
+      'Provide 24/7 production support ensuring system reliability and quick issue resolution',
+    ]
+  },
+  {
+    id: 'cyncly-mid',
+    title: 'Software Engineer',
+    company: 'Cyncly (2020)',
+    location: 'Pune, Maharashtra',
+    period: 'Jun 2022 - Sep 2022',
+    description: [
+      'Delivered scalable UI features using React.js, Redux, and Material UI for a product used by 40+ clients',
+      'Designed and optimized RESTful APIs and middleware for data transformation, validation, and secure communication',
+      'Collaborated with frontend teams to define API contracts and ensure seamless integration with React.js UIs',
+      'Focused on performance tuning, error handling, and logging using Winston and Application Insights',
+    ]
+  },
+  {
+    id: 'twentytwenty-intern',
+    title: 'Software Developer Intern',
+    company: 'Twenty Twenty Interior Design Software Pvt Ltd (2020)',
+    location: 'Pune, Maharashtra',
+    period: 'Dec 2021 - May 2022',
+    description: [
+      'Built 20+ responsive web pages using HTML5, CSS3, Bootstrap, JavaScript, and React.js to ensure UI consistency and cross-device compatibility',
+      'Integrated JSON data sources to enable dynamic rendering, reducing manual data handling and improving data reliability',
+      'Developed interactive React applications that enhanced user engagement and improved page load times',
+      'Participated in Agile development with Scrum methodologies, attending daily stand-ups and sprint planning to deliver iterative improvements',
+    ]
+  }
+]
+
+// Memoized experience item component
+const ExperienceItem = memo(({ exp }) => (
+  <div className="experience-item">
+    <div className="experience-icon">
+      <FaBriefcase />
+    </div>
+    <div className="experience-content">
+      <div className="experience-header">
+        <div>
+          <h3>{exp.title}</h3>
+          <h4>{exp.company}</h4>
+        </div>
+        <div className="experience-meta">
+          <span className="experience-period">{exp.period}</span>
+          <span className="experience-location">{exp.location}</span>
+        </div>
+      </div>
+      <ul className="experience-description">
+        {exp.description.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+))
+
+ExperienceItem.displayName = 'ExperienceItem'
+
 const Experience = () => {
-  const experiences = [
-    {
-      title: 'Software Engineer',
-      company: 'Cyncly',
-      location: 'Pune, Maharashtra',
-      period: 'Sep 2022 - Present',
-      description: [
-        'Developed and maintained backend services using Node.js and Azure Functions, integrating third-party client systems with internal web applications',
-        'Improved frontend performance by 25% through optimized React.js components and lazy loading strategies',
-        'Reduced backend latency by 20% with clean, modular Node.js APIs and microservices architecture',
-        'Implemented secure authentication flows using Azure AD B2C, enabling SSO and multi-tenant access control',
-        'Achieved 90%+ deployment success by managing CI/CD pipelines (YAML) and integrating Azure Blob Storage',
-        'Cut post-release defects by 25% through rigorous testing, API validation with Postman, and proactive monitoring',
-        'Contributed to presales effort estimations for new client requirements, supporting accurate scoping',
-        'Provide 24/7 production support ensuring system reliability and quick issue resolution',
-      ]
-    },
-    {
-      title: 'Software Engineer',
-      company: 'Cyncly (2020)',
-      location: 'Pune, Maharashtra',
-      period: 'Jun 2022 - Sep 2022',
-      description: [
-        'Delivered scalable UI features using React.js, Redux, and Material UI for a product used by 40+ clients',
-        'Designed and optimized RESTful APIs and middleware for data transformation, validation, and secure communication',
-        'Collaborated with frontend teams to define API contracts and ensure seamless integration with React.js UIs',
-        'Focused on performance tuning, error handling, and logging using Winston and Application Insights',
-      ]
-    },
-    {
-      title: 'Software Developer Intern',
-      company: 'Twenty Twenty Interior Design Software Pvt Ltd (2020)',
-      location: 'Pune, Maharashtra',
-      period: 'Dec 2021 - May 2022',
-      description: [
-        'Built 20+ responsive web pages using HTML5, CSS3, Bootstrap, JavaScript, and React.js to ensure UI consistency and cross-device compatibility',
-        'Integrated JSON data sources to enable dynamic rendering, reducing manual data handling and improving data reliability',
-        'Developed interactive React applications that enhanced user engagement and improved page load times',
-        'Participated in Agile development with Scrum methodologies, attending daily stand-ups and sprint planning to deliver iterative improvements',
-      ]
-    }
-  ]
+  // Memoize the experiences list to prevent unnecessary recalculations
+  const experiences = useMemo(() => EXPERIENCES_DATA, [])
 
   return (
     <section id="experience" className="section experience">
       <div className="container">
         <h2 className="section-title">Work Experience</h2>
         <div className="experience-timeline">
-          {experiences.map((exp, index) => (
-            <div key={index} className="experience-item">
-              <div className="experience-icon">
-                <FaBriefcase />
-              </div>
-              <div className="experience-content">
-                <div className="experience-header">
-                  <div>
-                    <h3>{exp.title}</h3>
-                    <h4>{exp.company}</h4>
-                  </div>
-                  <div className="experience-meta">
-                    <span className="experience-period">{exp.period}</span>
-                    <span className="experience-location">{exp.location}</span>
-                  </div>
-                </div>
-                <ul className="experience-description">
-                  {exp.description.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+          {experiences.map((exp) => (
+            <ExperienceItem key={exp.id} exp={exp} />
           ))}
         </div>
       </div>

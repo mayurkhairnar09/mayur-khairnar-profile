@@ -1,6 +1,34 @@
-import { useState } from 'react'
+import { useState, useCallback, memo } from 'react'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa'
 import './Contact.css'
+
+// Contact information - moved outside component for optimization
+const CONTACT_INFO = {
+  email: 'mayurkhairnar09@gmail.com',
+  phone: '+917385564656',
+  location: 'Pune, Maharashtra, India'
+}
+
+// Memoized contact item component
+const ContactItem = memo(({ icon: Icon, title, content, href, type }) => (
+  <div className="contact-item">
+    <div className="contact-icon">
+      <Icon />
+    </div>
+    <div>
+      <h4>{title}</h4>
+      {href ? (
+        <a href={href} aria-label={`${type} ${content}`}>
+          {content}
+        </a>
+      ) : (
+        <p>{content}</p>
+      )}
+    </div>
+  </div>
+))
+
+ContactItem.displayName = 'ContactItem'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,22 +39,33 @@ const Contact = () => {
   })
 
   const [status, setStatus] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+  // Optimized change handler with useCallback
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }, [])
 
-  const handleSubmit = (e) => {
+  // Optimized submit handler
+  const handleSubmit = useCallback((e) => {
     e.preventDefault()
-    // Here you would typically send the form data to a backend service
-    console.log('Form submitted:', formData)
-    setStatus('Message sent successfully!')
-    setTimeout(() => setStatus(''), 3000)
-    setFormData({ name: '', email: '', subject: '', message: '' })
-  }
+    setIsSubmitting(true)
+    
+    // Simulate form submission (replace with actual API call)
+    setTimeout(() => {
+      console.log('Form submitted:', formData)
+      setStatus('Message sent successfully!')
+      setIsSubmitting(false)
+      
+      // Clear form and status
+      setTimeout(() => setStatus(''), 3000)
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    }, 1000)
+  }, [formData])
 
   return (
     <section id="contact" className="section contact">
@@ -42,35 +81,29 @@ const Contact = () => {
             <p>Feel free to reach out through any of the following channels:</p>
             
             <div className="contact-details">
-              <div className="contact-item">
-                <div className="contact-icon">
-                  <FaEnvelope />
-                </div>
-                <div>
-                  <h4>Email</h4>
-                  <a href="mailto:mayurkhairnar09@gmail.com">mayurkhairnar09@gmail.com</a>
-                </div>
-              </div>
+              <ContactItem 
+                icon={FaEnvelope}
+                title="Email"
+                content={CONTACT_INFO.email}
+                href={`mailto:${CONTACT_INFO.email}`}
+                type="Email"
+              />
               
-              <div className="contact-item">
-                <div className="contact-icon">
-                  <FaPhone />
-                </div>
-                <div>
-                  <h4>Phone</h4>
-                  <a href="tel:+917385564656">+91 7385564656</a>
-                </div>
-              </div>
+              <ContactItem 
+                icon={FaPhone}
+                title="Phone"
+                content={CONTACT_INFO.phone}
+                href={`tel:${CONTACT_INFO.phone}`}
+                type="Call"
+              />
               
-              <div className="contact-item">
-                <div className="contact-icon">
-                  <FaMapMarkerAlt />
-                </div>
-                <div>
-                  <h4>Location</h4>
-                  <p>Pune, Maharashtra, India</p>
-                </div>
-              </div>
+              <ContactItem 
+                icon={FaMapMarkerAlt}
+                title="Location"
+                content={CONTACT_INFO.location}
+                href={null}
+                type={null}
+              />
             </div>
           </div>
 
@@ -127,11 +160,20 @@ const Contact = () => {
               />
             </div>
 
-            <button type="submit" className="submit-btn">
-              <FaPaperPlane /> Send Message
+            <button 
+              type="submit" 
+              className="submit-btn"
+              disabled={isSubmitting}
+              aria-label="Send message"
+            >
+              <FaPaperPlane /> {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
 
-            {status && <p className="form-status">{status}</p>}
+            {status && (
+              <p className="form-status" role="alert">
+                {status}
+              </p>
+            )}
           </form>
         </div>
       </div>
