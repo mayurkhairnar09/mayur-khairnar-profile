@@ -11,10 +11,10 @@ const Footer = () => {
   const { data, loading, error, refetch } = usePersonalData()
   const personalInfo = useMemo(() => data || {}, [data])
   const { name = 'Developer', title = '', summary = {} } = personalInfo
-  const { 
-    yearsOfExperience = '', 
-    expertise = [], 
-    achievements = {} 
+  const {
+    yearsOfExperience = '',
+    expertise = [],
+    achievements = {}
   } = summary
 
   if (loading) {
@@ -31,8 +31,8 @@ const Footer = () => {
     return (
       <footer className="footer">
         <div className="container">
-          <ErrorState 
-            message="Unable to load footer content." 
+          <ErrorState
+            message="Unable to load footer content."
             onRetry={refetch}
           />
         </div>

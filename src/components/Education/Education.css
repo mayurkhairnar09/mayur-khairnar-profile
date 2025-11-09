@@ -193,7 +193,7 @@
   word-wrap: break-word;
 }
 
-.cert-content > p {
+.cert-content>p {
   color: var(--text-secondary);
   font-size: 0.95rem;
   margin-bottom: 0.75rem;

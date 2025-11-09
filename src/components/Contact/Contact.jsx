@@ -38,7 +38,7 @@ const Contact = () => {
   const { data, loading, error, refetch } = usePersonalData()
   const personalInfo = useMemo(() => data || {}, [data])
   const { email = '', phone = '', location = '' } = personalInfo
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -62,10 +62,10 @@ const Contact = () => {
   const handleSubmit = useCallback((e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     // Email validation regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    
+
     // Validate form data
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setStatus('Please fill in all required fields.')
@@ -80,7 +80,7 @@ const Contact = () => {
       setTimeout(() => setStatus(''), 3000)
       return
     }
-    
+
     // Simulate form submission (replace with actual API call)
     setTimeout(() => {
       setStatus('Message sent successfully!')
@@ -106,8 +106,8 @@ const Contact = () => {
       <section id="contact" className="section contact">
         <div className="container">
           <h2 className="section-title">Get In Touch</h2>
-          <ErrorState 
-            message="Unable to load contact information." 
+          <ErrorState
+            message="Unable to load contact information."
             onRetry={refetch}
           />
         </div>
@@ -122,23 +122,23 @@ const Contact = () => {
         <p className="contact-intro">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
         </p>
-        
+
         <div className="contact-content">
           <div className="contact-info">
             <h3>Let's Talk</h3>
             <p>Feel free to reach out through any of the following channels:</p>
-            
+
             <div className="contact-details">
-              <ContactItem 
+              <ContactItem
                 icon={FaEnvelope}
                 title="Email"
                 content={email}
                 href={`mailto:${email}`}
                 type="Email"
               />
-              
+
               {phone && (
-                <ContactItem 
+                <ContactItem
                   icon={FaPhone}
                   title="Phone"
                   content={phone}
@@ -146,9 +146,9 @@ const Contact = () => {
                   type="Call"
                 />
               )}
-              
+
               {location && (
-                <ContactItem 
+                <ContactItem
                   icon={FaMapMarkerAlt}
                   title="Location"
                   content={location}
@@ -212,8 +212,8 @@ const Contact = () => {
               />
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="submit-btn"
               disabled={isSubmitting}
               aria-label="Send message"

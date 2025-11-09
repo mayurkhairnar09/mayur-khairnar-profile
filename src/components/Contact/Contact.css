@@ -24,7 +24,7 @@
   margin-bottom: 1rem;
 }
 
-.contact-info > p {
+.contact-info>p {
   color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.6;
@@ -223,7 +223,7 @@
     margin-bottom: 0.875rem;
   }
 
-  .contact-info > p {
+  .contact-info>p {
     font-size: 0.975rem;
     margin-bottom: 1.75rem;
   }
@@ -290,7 +290,7 @@
     font-size: 1.35rem;
   }
 
-  .contact-info > p {
+  .contact-info>p {
     font-size: 0.9rem;
   }
 

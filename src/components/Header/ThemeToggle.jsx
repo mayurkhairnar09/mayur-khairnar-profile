@@ -40,15 +40,15 @@ const ThemeToggle = ({ theme, onThemeChange }) => {
 
   return (
     <div className="theme-toggle-wrapper" ref={menuRef}>
-      <button 
-        className="theme-toggle" 
+      <button
+        className="theme-toggle"
         onClick={toggleTheme}
         onMouseEnter={() => setIsMenuOpen(true)}
         aria-label="Toggle theme"
       >
         {getCurrentIcon()}
       </button>
-      
+
       {isMenuOpen && (
         <div className="theme-menu">
           <button

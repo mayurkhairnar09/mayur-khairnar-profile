@@ -82,8 +82,8 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="container nav">
         {/* Mobile Menu Toggle */}
-        <div 
-          className="nav-toggle" 
+        <div
+          className="nav-toggle"
           onClick={toggleMobileMenu}
           role="button"
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -97,8 +97,8 @@ const Header = () => {
         <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           {navItems.map((item) => (
             <li key={item.name} className="nav-item">
-              <a 
-                href={item.href} 
+              <a
+                href={item.href}
                 className={`nav-link ${isMobileMenuOpen ? 'mobile-nav-link' : ''}`}
                 onClick={handleNavClick}
                 aria-label={`Navigate to ${item.name}`}
@@ -112,8 +112,8 @@ const Header = () => {
 
         {/* Mobile Menu Backdrop */}
         {isMobileMenuOpen && (
-          <div 
-            className="nav-backdrop" 
+          <div
+            className="nav-backdrop"
             onClick={toggleMobileMenu}
             role="button"
             aria-label="Close menu"
