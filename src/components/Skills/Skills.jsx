@@ -9,45 +9,45 @@ const SKILL_CATEGORIES = [
     id: 'frontend',
     category: 'Frontend Technologies',
     skills: [
-      { id: 'react', name: 'React.js', icon: FaReact, level: 95 },
-      { id: 'redux', name: 'Redux', icon: SiRedux, level: 90 },
-      { id: 'javascript', name: 'JavaScript (ES6+)', icon: FaJs, level: 95 },
-      { id: 'typescript', name: 'TypeScript', icon: SiTypescript, level: 88 },
-      { id: 'nextjs', name: 'Next.js', icon: SiNextdotjs, level: 85 },
-      { id: 'html5', name: 'HTML5', icon: FaHtml5, level: 95 },
-      { id: 'css3', name: 'CSS3', icon: FaCss3Alt, level: 95 },
-      { id: 'materialui', name: 'Material UI', icon: SiMaterialui, level: 92 },
+      { id: 'react', name: 'React.js', icon: FaReact },
+      { id: 'redux', name: 'Redux', icon: SiRedux },
+      { id: 'javascript', name: 'JavaScript (ES6+)', icon: FaJs },
+      { id: 'typescript', name: 'TypeScript', icon: SiTypescript },
+      { id: 'nextjs', name: 'Next.js', icon: SiNextdotjs },
+      { id: 'html5', name: 'HTML5', icon: FaHtml5 },
+      { id: 'css3', name: 'CSS3', icon: FaCss3Alt },
+      { id: 'materialui', name: 'Material UI', icon: SiMaterialui },
     ]
   },
   {
     id: 'backend',
     category: 'Backend & APIs',
     skills: [
-      { id: 'nodejs', name: 'Node.js', icon: FaNode, level: 92 },
-      { id: 'expressjs', name: 'Express.js', icon: SiExpress, level: 90 },
-      { id: 'restful', name: 'RESTful APIs', icon: FaDatabase, level: 95 },
-      { id: 'microservices', name: 'Microservices', icon: FaNode, level: 88 },
-      { id: 'azurefunctions', name: 'Azure Functions', icon: SiMicrosoftazure, level: 90 },
+      { id: 'nodejs', name: 'Node.js', icon: FaNode },
+      { id: 'expressjs', name: 'Express.js', icon: SiExpress },
+      { id: 'restful', name: 'RESTful APIs', icon: FaDatabase },
+      { id: 'microservices', name: 'Microservices', icon: FaNode },
+      { id: 'azurefunctions', name: 'Azure Functions', icon: SiMicrosoftazure },
     ]
   },
   {
     id: 'database',
     category: 'Database & Cloud',
     skills: [
-      { id: 'mongodb', name: 'MongoDB', icon: SiMongodb, level: 88 },
-      { id: 'sqlserver', name: 'SQL Server', icon: SiMicrosoftsqlserver, level: 85 },
-      { id: 'postgresql', name: 'PostgreSQL', icon: SiPostgresql, level: 85 },
-      { id: 'azure', name: 'Azure Cloud', icon: SiMicrosoftazure, level: 90 },
+      { id: 'mongodb', name: 'MongoDB', icon: SiMongodb },
+      { id: 'sqlserver', name: 'SQL Server', icon: SiMicrosoftsqlserver },
+      { id: 'postgresql', name: 'PostgreSQL', icon: SiPostgresql },
+      { id: 'azure', name: 'Azure Cloud', icon: SiMicrosoftazure },
     ]
   },
   {
     id: 'devops',
     category: 'DevOps & Tools',
     skills: [
-      { id: 'azuredevops', name: 'Azure DevOps', icon: SiMicrosoftazure, level: 90 },
-      { id: 'git', name: 'Git/GitHub', icon: FaGitAlt, level: 92 },
-      { id: 'docker', name: 'Docker', icon: SiDocker, level: 80 },
-      { id: 'cicd', name: 'CI/CD Pipelines', icon: SiMicrosoftazure, level: 88 },
+      { id: 'azuredevops', name: 'Azure DevOps', icon: SiMicrosoftazure },
+      { id: 'git', name: 'Git/GitHub', icon: FaGitAlt },
+      { id: 'docker', name: 'Docker', icon: SiDocker },
+      { id: 'cicd', name: 'CI/CD Pipelines', icon: SiMicrosoftazure },
     ]
   }
 ]
@@ -63,18 +63,6 @@ const SkillCard = memo(({ skill }) => {
       </div>
       <div className="skill-info">
         <h4>{skill.name}</h4>
-        <div className="skill-bar">
-          <div 
-            className="skill-progress" 
-            style={{ width: `${skill.level}%` }}
-            role="progressbar"
-            aria-valuenow={skill.level}
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-label={`${skill.name} proficiency: ${skill.level}%`}
-          />
-        </div>
-        <span className="skill-percentage">{skill.level}%</span>
       </div>
     </div>
   )
