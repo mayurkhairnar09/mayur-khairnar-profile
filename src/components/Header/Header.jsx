@@ -116,6 +116,14 @@ const Header = () => {
           ))}
         </ul>
 
+        {/* Mobile menu backdrop */}
+        {isMobileMenuOpen && (
+          <div 
+            className="nav-backdrop" 
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+
         <div className="nav-actions">
           <div className="theme-toggle-wrapper" ref={themeMenuRef}>
             <button 

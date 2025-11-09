@@ -145,6 +145,12 @@
   animation: floatAnimation 6s ease-in-out infinite;
 }
 
+.dark-mode .code-editor {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
 .editor-header {
   background: rgba(40, 40, 60, 0.8);
   padding: 12px 16px;

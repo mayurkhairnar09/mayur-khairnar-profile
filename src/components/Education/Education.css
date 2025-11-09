@@ -37,6 +37,13 @@
   border-left: 4px solid var(--primary-color);
 }
 
+.dark-mode .education-card {
+  background: rgba(30, 41, 59, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-color);
+}
+
 .education-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
