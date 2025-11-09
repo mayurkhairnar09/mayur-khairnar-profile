@@ -36,7 +36,39 @@ const Hero = () => {
         </div>
         <div className="hero-image">
           <div className="hero-image-wrapper">
-            <div className="hero-image-bg"></div>
+            {/* Developer illustration with code elements */}
+            <div className="developer-illustration">
+              <div className="code-editor">
+                <div className="editor-header">
+                  <span className="dot dot-red"></span>
+                  <span className="dot dot-yellow"></span>
+                  <span className="dot dot-green"></span>
+                </div>
+                <div className="editor-content">
+                  <div className="code-line">
+                    <span className="keyword">const</span> <span className="variable">developer</span> = <span className="bracket">{'{'}</span>
+                  </div>
+                  <div className="code-line indent">
+                    <span className="property">name:</span> <span className="string">'Mayur'</span>,
+                  </div>
+                  <div className="code-line indent">
+                    <span className="property">role:</span> <span className="string">'Full-Stack'</span>,
+                  </div>
+                  <div className="code-line indent">
+                    <span className="property">skills:</span> <span className="bracket">['React', 'Node']</span>,
+                  </div>
+                  <div className="code-line">
+                    <span className="bracket">{'}'}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="floating-icons">
+                <div className="float-icon icon-1">{'<>'}</div>
+                <div className="float-icon icon-2">{'{}'}</div>
+                <div className="float-icon icon-3">{'</>'}</div>
+                <div className="float-icon icon-4">{'()'}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
