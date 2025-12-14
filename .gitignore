@@ -12,6 +12,19 @@ dist
 dist-ssr
 *.local
 
+# Environment variables and sensitive data
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*-key.json
+secrets.json
+
+# Temporary HTML files
+gamma-site-*.html
+temp-*.html
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
