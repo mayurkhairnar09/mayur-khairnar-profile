@@ -2,7 +2,11 @@ import { memo } from 'react'
 import PropTypes from 'prop-types'
 import { getIcon } from '../../utils/iconMapper'
 
-const SkillCard = memo(({ skill }) => {
+/**
+ * Individual skill card that displays a technology/tool
+ * Shows an icon and name
+ */
+const SkillCard = memo(({ skill, delay = 0 }) => {
   const IconComponent = getIcon(skill.icon)
   
   return (
@@ -33,6 +37,7 @@ SkillCard.propTypes = {
     icon: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
   }).isRequired,
+  delay: PropTypes.number,
 }
 
 export default SkillCard

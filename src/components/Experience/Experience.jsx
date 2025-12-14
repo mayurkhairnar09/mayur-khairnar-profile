@@ -1,8 +1,7 @@
 import { FaBriefcase } from 'react-icons/fa'
 import { memo, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import LoadingState from '../common/LoadingState'
-import ErrorState from '../common/ErrorState'
+import SectionWrapper from '../common/SectionWrapper'
 import { useExperienceData } from '../../hooks/usePublicData'
 import './Experience.css'
 
@@ -48,42 +47,23 @@ const Experience = () => {
   const { data, loading, error, refetch } = useExperienceData()
   const experiences = useMemo(() => data?.experiences || [], [data])
 
-  if (loading) {
-    return (
-      <section id="experience" className="section experience">
-        <div className="container">
-          <h2 className="section-title">Work Experience</h2>
-          <LoadingState message="Loading experience data..." />
-        </div>
-      </section>
-    )
-  }
-
-  if (error || experiences.length === 0) {
-    return (
-      <section id="experience" className="section experience">
-        <div className="container">
-          <h2 className="section-title">Work Experience</h2>
-          <ErrorState
-            message="Unable to load experience data."
-            onRetry={refetch}
-          />
-        </div>
-      </section>
-    )
-  }
-
   return (
-    <section id="experience" className="section experience">
-      <div className="container">
-        <h2 className="section-title">Work Experience</h2>
-        <div className="experience-timeline">
-          {experiences.map((exp) => (
-            <ExperienceItem key={exp.id} exp={exp} />
-          ))}
-        </div>
+    <SectionWrapper
+      id="experience"
+      className="experience"
+      title="Work Experience"
+      loading={loading}
+      error={error || experiences.length === 0}
+      onRetry={refetch}
+      loadingMessage="Loading experience data..."
+      errorMessage="Unable to load experience data."
+    >
+      <div className="experience-timeline">
+        {experiences.map((exp) => (
+          <ExperienceItem key={exp.id} exp={exp} />
+        ))}
       </div>
-    </section>
+    </SectionWrapper>
   )
 }
 

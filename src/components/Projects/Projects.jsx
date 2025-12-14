@@ -1,8 +1,7 @@
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import { memo, useCallback, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import LoadingState from '../common/LoadingState'
-import ErrorState from '../common/ErrorState'
+import SectionWrapper from '../common/SectionWrapper'
 import { useProjectsData } from '../../hooks/usePublicData'
 import './Projects.css'
 
@@ -89,42 +88,23 @@ const Projects = () => {
     const { data, loading, error, refetch } = useProjectsData()
     const projects = useMemo(() => data?.projects || [], [data])
 
-    if (loading) {
-        return (
-            <section id="projects" className="section projects">
-                <div className="container">
-                    <h2 className="section-title">Projects</h2>
-                    <LoadingState message="Loading projects..." />
-                </div>
-            </section>
-        )
-    }
-
-    if (error || projects.length === 0) {
-        return (
-            <section id="projects" className="section projects">
-                <div className="container">
-                    <h2 className="section-title">Projects</h2>
-                    <ErrorState 
-                        message="Unable to load projects data." 
-                        onRetry={refetch}
-                    />
-                </div>
-            </section>
-        )
-    }
-
     return (
-        <section id="projects" className="section projects">
-            <div className="container">
-                <h2 className="section-title">Projects</h2>
-                <div className="projects-grid">
-                    {projects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
-                    ))}
-                </div>
+        <SectionWrapper
+            id="projects"
+            className="projects"
+            title="Projects"
+            loading={loading}
+            error={error || projects.length === 0}
+            onRetry={refetch}
+            loadingMessage="Loading projects..."
+            errorMessage="Unable to load projects data."
+        >
+            <div className="projects-grid">
+                {projects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                ))}
             </div>
-        </section>
+        </SectionWrapper>
     )
 }
 

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import PropTypes from 'prop-types'
+import DynamicBackground from './components/DynamicBackground/DynamicBackground'
 import './App.css'
 
 // Lazy load all components for better performance
@@ -13,48 +13,37 @@ const Education = lazy(() => import('./components/Education/Education'))
 const Contact = lazy(() => import('./components/Contact/Contact'))
 const Footer = lazy(() => import('./components/Footer/Footer'))
 
-// Loading component with section name
-const SectionLoader = ({ sectionName }) => (
-  <div className="section-loader">
-    <div className="loader-container">
-      <div className="spinner"></div>
-      <p className="loader-text">Loading {sectionName}...</p>
-    </div>
-  </div>
-)
-
-SectionLoader.propTypes = {
-  sectionName: PropTypes.string.isRequired
-}
-
 function App() {
   return (
     <div className="App">
-      <Suspense fallback={<SectionLoader sectionName="Navigation" />}>
+      {/* Dynamic animated background */}
+      <DynamicBackground />
+      
+      <Suspense fallback={null}>
         <Header />
       </Suspense>
-      <Suspense fallback={<SectionLoader sectionName="Hero Section" />}>
+      <Suspense fallback={null}>
         <Hero />
       </Suspense>
-      <Suspense fallback={<SectionLoader sectionName="About" />}>
+      <Suspense fallback={null}>
         <About />
       </Suspense>
-      <Suspense fallback={<SectionLoader sectionName="Skills" />}>
+      <Suspense fallback={null}>
         <Skills />
       </Suspense>
-      <Suspense fallback={<SectionLoader sectionName="Experience" />}>
+      <Suspense fallback={null}>
         <Experience />
       </Suspense>
-      <Suspense fallback={<SectionLoader sectionName="Education" />}>
+      <Suspense fallback={null}>
         <Education />
       </Suspense>
-      <Suspense fallback={<SectionLoader sectionName="Projects" />}>
+      <Suspense fallback={null}>
         <Projects />
       </Suspense>
-      <Suspense fallback={<SectionLoader sectionName="Contact" />}>
+      <Suspense fallback={null}>
         <Contact />
       </Suspense>
-      <Suspense fallback={<SectionLoader sectionName="Footer" />}>
+      <Suspense fallback={null}>
         <Footer />
       </Suspense>
     </div>

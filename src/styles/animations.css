@@ -1,0 +1,107 @@
+/* Scroll Animation Base Styles */
+.scroll-animate {
+  opacity: 1;
+  transition-property: opacity, transform;
+  transition-duration: var(--animation-duration, 600ms);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Only hide elements that are out of view */
+.scroll-animate.animate-out {
+  opacity: 0;
+}
+
+/* Direction-based initial states - only when animating out */
+.scroll-animate.animate-left.animate-out {
+  transform: translateX(-60px);
+}
+
+.scroll-animate.animate-right.animate-out {
+  transform: translateX(60px);
+}
+
+.scroll-animate.animate-up.animate-out {
+  transform: translateY(40px);
+}
+
+.scroll-animate.animate-down.animate-out {
+  transform: translateY(-40px);
+}
+
+.scroll-animate.animate-fade.animate-out {
+  transform: scale(0.95);
+}
+
+.scroll-animate.animate-zoom {
+  transform: scale(0.9);
+}
+
+/* Animated in state */
+.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1);
+}
+
+/* Optional: Add more complex animations */
+.scroll-animate.animate-rotate-in {
+  transform: rotate(-5deg) scale(0.95);
+}
+
+.scroll-animate.animate-rotate-in.animate-in {
+  transform: rotate(0deg) scale(1);
+}
+
+/* Slide and fade combination */
+.scroll-animate.animate-slide-fade-left {
+  transform: translateX(-60px);
+  opacity: 0;
+}
+
+.scroll-animate.animate-slide-fade-right {
+  transform: translateX(60px);
+  opacity: 0;
+}
+
+.scroll-animate.animate-slide-fade-left.animate-in,
+.scroll-animate.animate-slide-fade-right.animate-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Bounce effect */
+.scroll-animate.animate-bounce {
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Smooth transitions */
+.scroll-animate.animate-smooth {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Elastic effect */
+.scroll-animate.animate-elastic {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animate {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Utility classes for common patterns */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

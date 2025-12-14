@@ -1,5 +1,5 @@
 .projects {
-  background: var(--bg-secondary);
+  background: transparent;
 }
 
 .projects-grid {
@@ -9,17 +9,20 @@
 }
 
 .project-card {
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 5px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .dark-mode .project-card {
   background: var(--bg-primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .project-card:hover {

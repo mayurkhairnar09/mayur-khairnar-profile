@@ -1,5 +1,5 @@
 .education {
-  background: var(--bg-primary);
+  background: transparent;
 }
 
 .education-content {
@@ -29,18 +29,21 @@
 }
 
 .education-card {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 5px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
   border-left: 4px solid var(--primary-color);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .dark-mode .education-card {
-  background: rgba(30, 41, 59, 0.5);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-left: 4px solid var(--primary-color);
 }
 
@@ -85,19 +88,22 @@
 }
 
 .education-period {
-  background: white;
+  background: var(--bg-primary);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .dark-mode .education-period {
-  background: rgba(30, 41, 59, 0.8);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .education-gpa,
@@ -136,20 +142,22 @@
 }
 
 .certification-card {
-  background: white;
+  background: var(--bg-primary);
   padding: 1.75rem;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 1px 5px rgba(0, 0, 0, 0.04);
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
 .dark-mode .certification-card {
-  background: rgba(30, 41, 59, 0.5);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: var(--bg-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(96, 165, 250, 0.2);
 }
 

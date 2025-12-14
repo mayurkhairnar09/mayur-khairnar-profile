@@ -1,8 +1,7 @@
 import { FaGraduationCap, FaAward, FaExternalLinkAlt } from 'react-icons/fa'
 import { memo, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import LoadingState from '../common/LoadingState'
-import ErrorState from '../common/ErrorState'
+import SectionWrapper from '../common/SectionWrapper'
 import { useEducationData } from '../../hooks/usePublicData'
 import './Education.css'
 
@@ -111,81 +110,61 @@ const Education = () => {
   const certificationsList = useMemo(() => data?.certifications || [], [data])
   const awardsList = useMemo(() => data?.awards || [], [data])
 
-  if (loading) {
-    return (
-      <section id="education" className="section education">
-        <div className="container">
-          <h2 className="section-title">Education & Certifications</h2>
-          <LoadingState message="Loading education data..." />
-        </div>
-      </section>
-    )
-  }
-
-  if (error) {
-    return (
-      <section id="education" className="section education">
-        <div className="container">
-          <h2 className="section-title">Education & Certifications</h2>
-          <ErrorState
-            message="Unable to load education data."
-            onRetry={refetch}
-          />
-        </div>
-      </section>
-    )
-  }
-
   return (
-    <section id="education" className="section education">
-      <div className="container">
-        <h2 className="section-title">Education & Certifications</h2>
-
-        <div className="education-content">
-          {/* Education Section */}
-          {educationList.length > 0 && (
-            <div className="education-section">
-              <h3 className="subsection-title">
-                <FaGraduationCap /> Education
-              </h3>
-              <div className="education-list">
-                {educationList.map((edu) => (
-                  <EducationCard key={edu.id} edu={edu} />
-                ))}
-              </div>
+    <SectionWrapper
+      id="education"
+      className="education"
+      title="Education & Certifications"
+      loading={loading}
+      error={error}
+      onRetry={refetch}
+      loadingMessage="Loading education data..."
+      errorMessage="Unable to load education data."
+    >
+      <div className="education-content">
+        {/* Education Section */}
+        {educationList.length > 0 && (
+          <div className="education-section">
+            <h3 className="subsection-title">
+              <FaGraduationCap /> Education
+            </h3>
+            <div className="education-list">
+              {educationList.map((edu) => (
+                <EducationCard key={edu.id} edu={edu} />
+              ))}
             </div>
-          )}
+          </div>
+        )}
 
-          {/* Certifications Section */}
-          {certificationsList.length > 0 && (
-            <div className="certifications-section">
-              <h3 className="subsection-title">
-                <FaAward /> Certifications
-              </h3>
-              <div className="certifications-grid">
-                {certificationsList.map((cert) => (
-                  <CertificationCard key={cert.id} cert={cert} />
-                ))}
-              </div>
+        {/* Certifications Section */}
+        {certificationsList.length > 0 && (
+          <div className="certifications-section">
+            <h3 className="subsection-title">
+              <FaAward /> Certifications
+            </h3>
+            <div className="certifications-grid">
+              {certificationsList.map((cert) => (
+                <CertificationCard key={cert.id} cert={cert} />
+              ))}
             </div>
-          )}
+          </div>
+        )}
 
-          {/* Awards Section */}
-          {awardsList.length > 0 && (
-            <div className="certifications-section">
-              <h3 className="subsection-title">
-                <FaAward /> Awards & Recognition
-              </h3>
-              <div className="certifications-grid">
-                {awardsList.map((award) => (
-                  <AwardCard key={award.id} award={award} />
-                ))}
-              </div>
+        {/* Awards Section */}
+        {awardsList.length > 0 && (
+          <div className="certifications-section">
+            <h3 className="subsection-title">
+              <FaAward /> Awards & Recognition
+            </h3>
+            <div className="certifications-grid">
+              {awardsList.map((award) => (
+                <AwardCard key={award.id} award={award} />
+              ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
-    </section>
+    </SectionWrapper>
   )
 }
 

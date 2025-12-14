@@ -1,5 +1,5 @@
 .contact {
-  background: var(--bg-primary);
+  background: transparent;
 }
 
 .contact-intro {
@@ -8,6 +8,19 @@
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto 3rem;
+  background: var(--bg-primary);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 5px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dark-mode .contact-intro {
+  background: var(--bg-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .contact-content {
@@ -15,6 +28,22 @@
   grid-template-columns: 1fr 1.5fr;
   gap: 4rem;
   align-items: start;
+}
+
+.contact-info {
+  background: var(--bg-primary);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 5px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dark-mode .contact-info {
+  background: var(--bg-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .contact-info h3 {
@@ -110,14 +139,16 @@
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--bg-primary);
   color: var(--text-primary);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
 .dark-mode .form-group input,
 .dark-mode .form-group textarea {
-  background: rgba(15, 23, 42, 0.5);
-  border-color: var(--border-color);
+  background: var(--bg-primary);
+  border-color: rgba(255, 255, 255, 0.08);
   color: var(--text-primary);
 }
 

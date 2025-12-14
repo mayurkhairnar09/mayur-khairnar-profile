@@ -2,16 +2,25 @@ import { memo } from 'react'
 import PropTypes from 'prop-types'
 import SkillCard from './SkillCard'
 
-const SkillCategory = memo(({ category }) => (
-  <div className="skill-category">
-    <h3 className="category-title">{category.category}</h3>
-    <div className="skills-grid">
-      {category.skills.map((skill) => (
-        <SkillCard key={skill.id} skill={skill} />
-      ))}
+/**
+ * Displays a category of skills (like "Frontend", "Backend", etc.)
+ */
+const SkillCategory = memo(({ category, index = 0 }) => {
+  return (
+    <div className="skill-category">
+      <h3 className="category-title">{category.category}</h3>
+      <div className="skills-grid">
+        {category.skills.map((skill, skillIndex) => (
+          <SkillCard 
+            key={skill.id} 
+            skill={skill} 
+            delay={skillIndex * 50} 
+          />
+        ))}
+      </div>
     </div>
-  </div>
-))
+  )
+})
 
 SkillCategory.displayName = 'SkillCategory'
 
@@ -28,6 +37,7 @@ SkillCategory.propTypes = {
       })
     ).isRequired,
   }).isRequired,
+  index: PropTypes.number,
 }
 
 export default SkillCategory

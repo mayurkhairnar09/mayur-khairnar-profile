@@ -1,8 +1,7 @@
 import { useState, useCallback, memo, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa'
-import LoadingState from '../common/LoadingState'
-import ErrorState from '../common/ErrorState'
+import SectionWrapper from '../common/SectionWrapper'
 import { usePersonalData } from '../../hooks/usePublicData'
 import './Contact.css'
 
@@ -90,76 +89,58 @@ const Contact = () => {
     }, 1000)
   }, [formData])
 
-  if (loading) {
-    return (
-      <section id="contact" className="section contact">
-        <div className="container">
-          <h2 className="section-title">Get In Touch</h2>
-          <LoadingState message="Loading contact information..." />
-        </div>
-      </section>
-    )
-  }
-
-  if (error || !email) {
-    return (
-      <section id="contact" className="section contact">
-        <div className="container">
-          <h2 className="section-title">Get In Touch</h2>
-          <ErrorState
-            message="Unable to load contact information."
-            onRetry={refetch}
-          />
-        </div>
-      </section>
-    )
-  }
-
   return (
-    <section id="contact" className="section contact">
-      <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
-        <p className="contact-intro">
-          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-        </p>
+    <SectionWrapper
+      id="contact"
+      className="contact"
+      title="Get In Touch"
+      loading={loading}
+      error={error || !email}
+      onRetry={refetch}
+      loadingMessage="Loading contact information..."
+      errorMessage="Unable to load contact information."
+    >
+      <p className="contact-intro">
+        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+      </p>
 
-        <div className="contact-content">
-          <div className="contact-info">
-            <h3>Let's Talk</h3>
-            <p>Feel free to reach out through any of the following channels:</p>
+      <div className="contact-content">
+        <div className="contact-info">
+          <h3>Let's Talk</h3>
+          <p>Feel free to reach out through any of the following channels:</p>
 
-            <div className="contact-details">
+          <div className="contact-details">
+            <ContactItem
+              icon={FaEnvelope}
+              title="Email"
+              content={email}
+              href={`mailto:${email}`}
+              type="Email"
+            />
+
+            {phone && (
               <ContactItem
-                icon={FaEnvelope}
-                title="Email"
-                content={email}
-                href={`mailto:${email}`}
-                type="Email"
+                icon={FaPhone}
+                title="Phone"
+                content={phone}
+                href={`tel:${phone}`}
+                type="Call"
               />
+            )}
 
-              {phone && (
-                <ContactItem
-                  icon={FaPhone}
-                  title="Phone"
-                  content={phone}
-                  href={`tel:${phone}`}
-                  type="Call"
-                />
-              )}
-
-              {location && (
-                <ContactItem
-                  icon={FaMapMarkerAlt}
-                  title="Location"
-                  content={location}
-                  href={null}
-                  type={null}
-                />
-              )}
-            </div>
+            {location && (
+              <ContactItem
+                icon={FaMapMarkerAlt}
+                title="Location"
+                content={location}
+                href={null}
+                type={null}
+              />
+            )}
           </div>
+        </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -221,15 +202,14 @@ const Contact = () => {
               <FaPaperPlane /> {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
 
-            {status && (
-              <p className="form-status" role="alert">
-                {status}
-              </p>
-            )}
+          {status && (
+            <p className="form-status" role="alert">
+              {status}
+            </p>
+          )}
           </form>
         </div>
-      </div>
-    </section>
+    </SectionWrapper>
   )
 }
 

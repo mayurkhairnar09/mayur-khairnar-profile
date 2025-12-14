@@ -27,13 +27,20 @@
   top: calc(100% + 10px);
   right: 0;
   background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
   padding: 0.5rem;
   min-width: 150px;
   z-index: 1001;
   animation: slideDown 0.2s ease;
+}
+
+.dark-mode .theme-menu {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dark-mode .theme-menu {
